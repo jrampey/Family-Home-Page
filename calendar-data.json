@@ -1,0 +1,833 @@
+{
+  "updated": "2026-09-13T21:17:03.879Z",
+  "events": [
+    {
+      "title": "Yeargin Photos",
+      "start": "2023-11-26T17:00:00.000Z",
+      "end": "2023-11-26T18:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Joseph Doctor Appointment",
+      "start": "2023-12-01T11:15:00.000Z",
+      "end": "2023-12-01T12:15:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Ava - Gymnastics",
+      "start": "2023-12-06T15:30:00.000Z",
+      "end": "2023-12-06T16:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Joseph's work party",
+      "start": "2023-12-09T19:00:00.000Z",
+      "end": "2023-12-09T22:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Dinner with Montana",
+      "start": "2023-12-11T18:30:00.000Z",
+      "end": "2023-12-11T19:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Reservation at The Westin Poinsett, Greenville",
+      "start": "2023-12-16T15:00:00.000Z",
+      "end": "2023-12-17T12:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Stefan Babyshower",
+      "start": "2023-12-17T11:00:00.000Z",
+      "end": "2023-12-17T12:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Small Group",
+      "start": "2023-12-21T18:30:00.000Z",
+      "end": "2023-12-21T20:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Spot at Novant-GoHealth Urgent Care",
+      "start": "2023-12-26T11:30:00.000Z",
+      "end": "2023-12-26T12:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Small Group",
+      "start": "2024-01-04T18:30:00.000Z",
+      "end": "2024-01-04T20:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Joseph - Doctor",
+      "start": "2024-01-12T14:45:00.000Z",
+      "end": "2024-01-12T15:45:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Reservation: Ruth's Chris Steak House - Charlotte - SouthPark",
+      "start": "2024-03-16T19:15:00.000Z",
+      "end": "2024-03-16T20:45:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Lunch with Montana",
+      "start": "2024-03-25T12:00:00.000Z",
+      "end": "2024-03-25T13:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Reservation: Ilios Noche",
+      "start": "2024-03-31T11:00:00.000Z",
+      "end": "2024-03-31T12:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Passport -Fox",
+      "start": "2024-04-03T10:15:00.000Z",
+      "end": "2024-04-03T11:15:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Ticket: Charlotte Knights vs. Norfolk Tides",
+      "start": "2024-04-06T18:05:00.000Z",
+      "end": "2024-04-06T19:35:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "TSA Precheck",
+      "start": "2024-04-10T10:50:00.000Z",
+      "end": "2024-04-10T11:50:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Service reservation at Keffer Hyundai and Genesis of Charlotte",
+      "start": "2024-04-19T12:00:00.000Z",
+      "end": "2024-04-19T13:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Novant Appointment",
+      "start": "2024-05-02T08:30:00.000Z",
+      "end": "2024-05-02T09:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Work from Home",
+      "start": "2024-05-03T00:00:00.000Z",
+      "end": "2024-05-04T00:00:00.000Z",
+      "allDay": true
+    },
+    {
+      "title": "Ava Kindergarten Assessment",
+      "start": "2024-05-03T10:00:00.000Z",
+      "end": "2024-05-03T11:15:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Novant Appointment",
+      "start": "2024-05-13T13:15:00.000Z",
+      "end": "2024-05-13T14:15:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Experience Room Open at Baltimore 3-5",
+      "start": "2024-05-22T11:00:00.000Z",
+      "end": "2024-05-22T17:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Warm Welcome Opening Reception at Potomac Terrace",
+      "start": "2024-05-22T17:00:00.000Z",
+      "end": "2024-05-22T19:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Experience Room Open at Baltimore 3-5",
+      "start": "2024-05-23T07:00:00.000Z",
+      "end": "2024-05-23T17:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "A MONUMENTAL Annual Appreciation Dinner at The Sunset Room | 137 National Plaza #200, Oxon Hill, MD 20745",
+      "start": "2024-05-23T18:00:00.000Z",
+      "end": "2024-05-23T21:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Experience Room Open at Baltimore 3-5",
+      "start": "2024-05-24T08:00:00.000Z",
+      "end": "2024-05-24T14:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Flight: AA 1537 from DCA to CLT",
+      "start": "2024-05-24T17:54:00.000Z",
+      "end": "2024-05-24T19:26:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Novant Appointment",
+      "start": "2024-05-28T08:30:00.000Z",
+      "end": "2024-05-28T09:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Camp Invention",
+      "start": "2024-06-10T08:30:00.000Z",
+      "end": "2024-06-14T15:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Joseph Dentist",
+      "start": "2024-06-11T15:00:00.000Z",
+      "end": "2024-06-11T16:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Apple Pickup Check-In Time",
+      "start": "2024-06-22T13:45:00.000Z",
+      "end": "2024-06-22T14:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Spiffy Service Appointment",
+      "start": "2024-06-28T13:00:00.000Z",
+      "end": "2024-06-28T14:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "1210 Flint Ct - Closing",
+      "start": "2024-07-01T09:30:00.000Z",
+      "end": "2024-07-01T10:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Spiffy Service Appointment",
+      "start": "2024-07-05T11:00:00.000Z",
+      "end": "2024-07-05T12:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Spiffy Service Appointment",
+      "start": "2024-07-12T11:00:00.000Z",
+      "end": "2024-07-12T12:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Meeting with DOT",
+      "start": "2024-07-16T11:00:00.000Z",
+      "end": "2024-07-16T12:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Tahoe Estimate",
+      "start": "2024-07-24T13:00:00.000Z",
+      "end": "2024-07-24T14:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Southport",
+      "start": "2024-07-26T20:00:00.000Z",
+      "end": "2024-07-26T21:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Reservation: Little Mama's Italian - Rea Farms",
+      "start": "2024-07-26T20:15:00.000Z",
+      "end": "2024-07-26T21:45:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Appointment at Charlotte South DMV",
+      "start": "2024-07-29T08:00:00.000Z",
+      "end": "2024-07-29T09:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "UA Family Picnic",
+      "start": "2024-08-02T17:30:00.000Z",
+      "end": "2024-08-02T19:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Alex Mann",
+      "start": "2024-08-05T14:30:00.000Z",
+      "end": "2024-08-05T15:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Appointment at Costco Tire - MATTHEWS",
+      "start": "2024-08-10T12:30:00.000Z",
+      "end": "2024-08-10T13:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Spiffy Service Appointment",
+      "start": "2024-08-23T08:00:00.000Z",
+      "end": "2024-08-23T09:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Tahoe Oil change",
+      "start": "2024-08-23T09:00:00.000Z",
+      "end": "2024-08-23T10:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Barndo Site Visit",
+      "start": "2024-08-27T14:00:00.000Z",
+      "end": "2024-08-27T15:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Jenn",
+      "start": "2024-09-06T00:00:00.000Z",
+      "end": "2024-09-09T00:00:00.000Z",
+      "allDay": true
+    },
+    {
+      "title": "Stay: SpringHill Suites Cape Canaveral Cocoa Beach",
+      "start": "2024-09-26T00:00:00.000Z",
+      "end": "2024-09-28T00:00:00.000Z",
+      "allDay": true
+    },
+    {
+      "title": "Reservation at SpringHill Suites Cape Canaveral Cocoa Beach",
+      "start": "2024-09-26T16:00:00.000Z",
+      "end": "2024-09-27T11:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Kinetic Install",
+      "start": "2024-10-14T10:00:00.000Z",
+      "end": "2024-10-14T12:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Chiropractor",
+      "start": "2024-10-23T14:15:00.000Z",
+      "end": "2024-10-23T15:15:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Jenn",
+      "start": "2024-11-09T00:00:00.000Z",
+      "end": "2024-11-10T00:00:00.000Z",
+      "allDay": true
+    },
+    {
+      "title": "Chiropractor",
+      "start": "2024-11-14T12:00:00.000Z",
+      "end": "2024-11-14T13:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Union Power",
+      "start": "2024-12-09T13:30:00.000Z",
+      "end": "2024-12-09T14:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "SOUTH CHARLOTTE CHEV apt",
+      "start": "2024-12-30T09:30:00.000Z",
+      "end": "2024-12-30T10:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Appointment Confirmation: SOUTH CHARLOTTE CHEVROLET",
+      "start": "2025-01-04T09:30:00.000Z",
+      "end": "2025-01-04T10:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Amtrak: 80 Carolinian",
+      "start": "2025-01-29T06:45:00.000Z",
+      "end": "2025-01-29T10:05:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Amtrak: 77 Piedmont",
+      "start": "2025-01-29T15:15:00.000Z",
+      "end": "2025-01-29T18:21:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "New Event",
+      "start": "2025-03-07T15:00:00.000Z",
+      "end": "2025-03-07T16:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Union Power",
+      "start": "2025-03-18T09:30:00.000Z",
+      "end": "2025-03-18T10:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Ava Dentist",
+      "start": "2025-03-20T08:30:00.000Z",
+      "end": "2025-03-20T09:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Spiffy",
+      "start": "2025-03-27T09:00:00.000Z",
+      "end": "2025-03-27T10:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Upcoming appointment at Medi-Weightloss",
+      "start": "2025-03-27T18:00:00.000Z",
+      "end": "2025-03-27T19:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Napa",
+      "start": "2025-04-20T16:15:00.000Z",
+      "end": "2025-04-20T19:15:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Appointment Confirmation: SOUTH CHARLOTTE CHEVROLET",
+      "start": "2025-05-28T10:00:00.000Z",
+      "end": "2025-05-28T11:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Ilios",
+      "start": "2025-06-27T19:00:00.000Z",
+      "end": "2025-06-27T20:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Ava Dentist",
+      "start": "2025-07-03T12:30:00.000Z",
+      "end": "2025-07-03T13:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Union Power",
+      "start": "2025-07-07T09:30:00.000Z",
+      "end": "2025-07-07T10:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Ava Dentist",
+      "start": "2025-07-07T10:00:00.000Z",
+      "end": "2025-07-07T11:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Meet Hunter",
+      "start": "2025-08-22T09:30:00.000Z",
+      "end": "2025-08-22T10:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Meet kinetico",
+      "start": "2025-08-30T10:00:00.000Z",
+      "end": "2025-08-30T11:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Chestnut Move-Out",
+      "start": "2025-09-22T00:00:00.000Z",
+      "end": "2025-09-23T00:00:00.000Z",
+      "allDay": true
+    },
+    {
+      "title": "Adapt Aware User Journey",
+      "start": "2025-10-01T11:15:00.000Z",
+      "end": "2025-10-01T12:15:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Punch Walk",
+      "start": "2025-10-07T08:45:00.000Z",
+      "end": "2025-10-07T09:45:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Parkway Dentistry",
+      "start": "2025-10-13T10:00:00.000Z",
+      "end": "2025-10-13T11:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "UA Meeting",
+      "start": "2025-10-15T13:00:00.000Z",
+      "end": "2025-10-15T14:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Appointment at CADILLAC OF SOUTH CH",
+      "start": "2025-10-16T10:30:00.000Z",
+      "end": "2025-10-16T11:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Appointment at CGC Water Service",
+      "start": "2025-10-29T08:00:00.000Z",
+      "end": "2025-10-29T12:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Work Dinner",
+      "start": "2025-12-03T18:00:00.000Z",
+      "end": "2025-12-03T20:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Foster Christmas",
+      "start": "2025-12-19T00:00:00.000Z",
+      "end": "2025-12-20T00:00:00.000Z",
+      "allDay": true
+    },
+    {
+      "title": "Dinner",
+      "start": "2025-12-25T17:00:00.000Z",
+      "end": "2025-12-25T18:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Bacons",
+      "start": "2025-12-29T16:00:00.000Z",
+      "end": "2025-12-29T17:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Katie Dentist",
+      "start": "2026-01-05T14:44:00.000Z",
+      "end": "2026-01-05T15:44:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Dinner at Steak48",
+      "start": "2026-01-06T18:00:00.000Z",
+      "end": "2026-01-06T21:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Ava’s Dentist",
+      "start": "2026-01-08T10:00:00.000Z",
+      "end": "2026-01-08T11:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Tumble",
+      "start": "2026-01-08T17:00:00.000Z",
+      "end": "2026-01-08T18:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Vision Day Welcome Reception",
+      "start": "2026-01-14T16:30:00.000Z",
+      "end": "2026-01-14T18:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Vision Day",
+      "start": "2026-01-15T09:00:00.000Z",
+      "end": "2026-01-15T17:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Doctor",
+      "start": "2026-01-27T09:45:00.000Z",
+      "end": "2026-01-27T10:45:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Fox's Birthday",
+      "start": "2026-01-29T00:00:00.000Z",
+      "end": "2026-01-30T00:00:00.000Z",
+      "allDay": true
+    },
+    {
+      "title": "Foxy’s Haircut",
+      "start": "2026-01-29T10:00:00.000Z",
+      "end": "2026-01-29T11:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Reservation at Aloft Charlotte Ballantyne",
+      "start": "2026-01-29T15:00:00.000Z",
+      "end": "2026-01-30T12:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Appointment at Parkway Dentistry @ Pineville: Joseph",
+      "start": "2026-02-02T08:00:00.000Z",
+      "end": "2026-02-02T09:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Root Canal Check in",
+      "start": "2026-02-11T07:00:00.000Z",
+      "end": "2026-02-11T08:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Fox Well Visit",
+      "start": "2026-02-18T09:15:00.000Z",
+      "end": "2026-02-18T10:15:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Beckett's Birthday Party",
+      "start": "2026-02-22T14:00:00.000Z",
+      "end": "2026-02-22T15:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Gramp's Birthday",
+      "start": "2026-02-23T00:00:00.000Z",
+      "end": "2026-02-24T00:00:00.000Z",
+      "allDay": true
+    },
+    {
+      "title": "Doctor - Mallory",
+      "start": "2026-03-03T10:00:00.000Z",
+      "end": "2026-03-03T11:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Dr B",
+      "start": "2026-03-23T14:00:00.000Z",
+      "end": "2026-03-23T15:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Oil Change",
+      "start": "2026-03-26T13:00:00.000Z",
+      "end": "2026-03-26T14:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Mallory",
+      "start": "2026-04-10T10:00:00.000Z",
+      "end": "2026-04-10T11:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Tumble Make Up",
+      "start": "2026-04-11T10:00:00.000Z",
+      "end": "2026-04-11T11:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Parkway Dentistry",
+      "start": "2026-04-15T08:30:00.000Z",
+      "end": "2026-04-15T09:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Dentist - Fox",
+      "start": "2026-04-16T10:00:00.000Z",
+      "end": "2026-04-16T11:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Vidu Surgery",
+      "start": "2026-04-23T07:00:00.000Z",
+      "end": "2026-04-23T08:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Chiropractor",
+      "start": "2026-04-27T18:15:00.000Z",
+      "end": "2026-04-27T19:15:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Ava’s Testing",
+      "start": "2026-05-10T20:00:00.000Z",
+      "end": "2026-05-11T20:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Jessica - not Mallory",
+      "start": "2026-05-11T09:00:00.000Z",
+      "end": "2026-05-11T10:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Church picnic",
+      "start": "2026-05-17T12:00:00.000Z",
+      "end": "2026-05-17T13:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Client Conference",
+      "start": "2026-05-18T20:00:00.000Z",
+      "end": "2026-05-22T20:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "ImagineOne Certified Users: Cheers & Chats at Chicago Ballroom Foyer",
+      "start": "2026-05-19T18:00:00.000Z",
+      "end": "2026-05-19T19:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Dentist - Katie",
+      "start": "2026-05-26T12:30:00.000Z",
+      "end": "2026-05-26T13:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Bretz Surprise Party",
+      "start": "2026-06-06T15:00:00.000Z",
+      "end": "2026-06-06T16:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Cheer",
+      "start": "2026-06-09T18:00:00.000Z",
+      "end": "2026-06-09T19:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Endocrinology",
+      "start": "2026-06-10T19:30:00.000Z",
+      "end": "2026-06-10T20:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Bacon Graduation Party",
+      "start": "2026-06-13T12:00:00.000Z",
+      "end": "2026-06-13T15:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Nature Camp",
+      "start": "2026-06-15T09:00:00.000Z",
+      "end": "2026-06-19T12:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Joseph Vacation",
+      "start": "2026-06-22T00:00:00.000Z",
+      "end": "2026-06-27T00:00:00.000Z",
+      "allDay": true
+    },
+    {
+      "title": "Toy Story 5 (2026)",
+      "start": "2026-06-28T14:30:00.000Z",
+      "end": "2026-06-28T16:32:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Dr Jessica",
+      "start": "2026-07-06T10:15:00.000Z",
+      "end": "2026-07-06T23:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "John’s Birthday",
+      "start": "2026-07-11T00:00:00.000Z",
+      "end": "2026-07-12T00:00:00.000Z",
+      "allDay": true
+    },
+    {
+      "title": "Dr Jessica",
+      "start": "2026-08-03T10:45:00.000Z",
+      "end": "2026-08-03T12:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Bloodwork needed",
+      "start": "2026-08-10T10:00:00.000Z",
+      "end": "2026-08-10T15:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Ava - Cheer Choreo",
+      "start": "2026-08-14T08:00:00.000Z",
+      "end": "2026-08-14T10:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Ava- Cheer Choreo",
+      "start": "2026-08-21T16:00:00.000Z",
+      "end": "2026-08-21T18:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Fox Dermatologist",
+      "start": "2026-08-25T14:10:00.000Z",
+      "end": "2026-08-25T15:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Jessica",
+      "start": "2026-08-31T13:45:00.000Z",
+      "end": "2026-08-31T14:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Cheer",
+      "start": "2026-08-31T18:00:00.000Z",
+      "end": "2026-08-31T19:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Dr Sal",
+      "start": "2026-09-04T09:00:00.000Z",
+      "end": "2026-09-04T23:45:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Fox Soccer",
+      "start": "2026-09-12T09:00:00.000Z",
+      "end": "2026-09-12T10:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Fox Soccer Games",
+      "start": "2026-09-13T09:00:00.000Z",
+      "end": "2026-09-13T10:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Ava - Neurology",
+      "start": "2026-09-15T12:00:00.000Z",
+      "end": "2026-09-15T13:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Jessica",
+      "start": "2026-09-28T13:15:00.000Z",
+      "end": "2026-09-28T15:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Worship on the lawn",
+      "start": "2026-10-09T18:00:00.000Z",
+      "end": "2026-10-09T20:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Dentist",
+      "start": "2026-10-21T09:30:00.000Z",
+      "end": "2026-10-21T10:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Endo",
+      "start": "2026-12-01T14:50:00.000Z",
+      "end": "2026-12-01T18:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Katie Dentist",
+      "start": "2026-12-28T12:30:00.000Z",
+      "end": "2026-12-28T14:00:00.000Z",
+      "allDay": false
+    }
+  ]
+}
