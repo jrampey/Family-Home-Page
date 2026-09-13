@@ -1,0 +1,1 @@
+index-auto.html is the staged automatic homepage. app.js loads daily-data.json. scripts/update-daily.mjs now has no OpenAI dependency. Replace index.html with index-auto.html when ready.
