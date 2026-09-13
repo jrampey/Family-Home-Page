@@ -13,7 +13,7 @@ const response = await fetch(calendarUrl, {
 });
 
 if (!response.ok) {
-  throw new Error(`Apple Calendar returned ${response.status}`);
+  throw new Error(`Calendar returned ${response.status}`);
 }
 
 const raw = (await response.text()).replace(/\r?\n[ \t]/g, "");
@@ -33,36 +33,47 @@ function value(block, key) {
     : "";
 }
 
-function parseDate(value) {
-  if (!value) return null;
+function parseDate(v) {
+  if (!v) return null;
 
-  // All-day event
-  if (/^\d{8}$/.test(value)) {
+  if (/^\d{8}$/.test(v)) {
     return new Date(
-      Date.UTC(
-        Number(value.slice(0, 4)),
-        Number(value.slice(4, 6)) - 1,
-        Number(value.slice(6, 8))
-      )
+      Number(v.slice(0, 4)),
+      Number(v.slice(4, 6)) - 1,
+      Number(v.slice(6, 8))
     );
   }
 
-  const utc = value.endsWith("Z");
-  const v = value.replace(/Z$/, "");
+  const utc = v.endsWith("Z");
+  const x = v.replace(/Z$/, "");
 
   const parts = [
-    Number(v.slice(0, 4)),
-    Number(v.slice(4, 6)) - 1,
-    Number(v.slice(6, 8)),
-    Number(v.slice(9, 11)) || 0,
-    Number(v.slice(11, 13)) || 0,
-    Number(v.slice(13, 15)) || 0
+    Number(x.slice(0, 4)),
+    Number(x.slice(4, 6)) - 1,
+    Number(x.slice(6, 8)),
+    Number(x.slice(9, 11)) || 0,
+    Number(x.slice(11, 13)) || 0,
+    Number(x.slice(13, 15)) || 0
   ];
 
   return utc
     ? new Date(Date.UTC(...parts))
     : new Date(...parts);
 }
+
+/*
+ * Only publish:
+ * yesterday + today + tomorrow
+ */
+
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+
+const windowStart = new Date(today);
+windowStart.setDate(windowStart.getDate() - 1);
+
+const windowEnd = new Date(today);
+windowEnd.setDate(windowEnd.getDate() + 2);
 
 const events = [...raw.matchAll(/BEGIN:VEVENT([\s\S]*?)END:VEVENT/g)]
   .map(match => {
@@ -76,13 +87,29 @@ const events = [...raw.matchAll(/BEGIN:VEVENT([\s\S]*?)END:VEVENT/g)]
 
     return {
       title: value(block, "SUMMARY") || "Untitled event",
-      start: start?.toISOString() || null,
-      end: end?.toISOString() || null,
+      start,
+      end,
       allDay: /^\d{8}$/.test(startRaw)
     };
   })
-  .filter(event => event.start)
-  .sort((a, b) => new Date(a.start) - new Date(b.start));
+  .filter(event => {
+    if (!event.start) return false;
+
+    const eventEnd =
+      event.end || new Date(event.start.getTime() + 1);
+
+    return (
+      event.start < windowEnd &&
+      eventEnd > windowStart
+    );
+  })
+  .sort((a, b) => a.start - b.start)
+  .map(event => ({
+    title: event.title,
+    start: event.start.toISOString(),
+    end: event.end?.toISOString() || null,
+    allDay: event.allDay
+  }));
 
 await fs.writeFile(
   "calendar-data.json",
@@ -96,4 +123,6 @@ await fs.writeFile(
   ) + "\n"
 );
 
-console.log(`Saved ${events.length} Apple Calendar events.`);
+console.log(
+  `Published ${events.length} events for yesterday, today and tomorrow.`
+);
