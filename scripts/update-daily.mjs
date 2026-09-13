@@ -1,50 +1,22 @@
 import fs from 'node:fs/promises';
-
-const now = new Date();
-const eastern = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
-const start = new Date(eastern.getFullYear(), 0, 0);
-const day = Math.floor((eastern - start) / 86400000);
-const birth = new Date('2018-11-07T12:00:00');
-let age = eastern.getFullYear() - birth.getFullYear();
-if (eastern.getMonth() < birth.getMonth() || (eastern.getMonth() === birth.getMonth() && eastern.getDate() < birth.getDate())) age--;
-
-const planUrl = `https://www.bible.com/reading-plans/42399-the-bible-recap-with-tara-leigh-cobble/day/${day}`;
-const page = await fetch(planUrl, { headers: { 'user-agent': 'Family-Home-Page/1.0' } });
-if (!page.ok) throw new Error(`Bible.com returned ${page.status}`);
-const html = await page.text();
-
-const clean = html.replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/\s+/g, ' ');
-const books = ['Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Joshua','Judges','Ruth','1 Samuel','2 Samuel','1 Kings','2 Kings','1 Chronicles','2 Chronicles','Ezra','Nehemiah','Esther','Job','Psalm','Psalms','Proverbs','Ecclesiastes','Song of Songs','Isaiah','Jeremiah','Lamentations','Ezekiel','Daniel','Hosea','Joel','Amos','Obadiah','Jonah','Micah','Nahum','Habakkuk','Zephaniah','Haggai','Zechariah','Malachi','Matthew','Mark','Luke','John','Acts','Romans','1 Corinthians','2 Corinthians','Galatians','Ephesians','Philippians','Colossians','1 Thessalonians','2 Thessalonians','1 Timothy','2 Timothy','Titus','Philemon','Hebrews','James','1 Peter','2 Peter','1 John','2 John','3 John','Jude','Revelation'];
-const escaped = books.map(x => x.replace(/ /g, '\\s+')).join('|');
-const matches = [...clean.matchAll(new RegExp(`(?:${escaped})\\s+\\d+(?::\\d+(?:[-–]\\d+)?)?`, 'gi'))].map(m => m[0]);
-const scripture = [...new Set(matches)].slice(0, 12).join('; ') || `The Bible Recap — Day ${day}`;
-
-let data = {};
-try { data = JSON.parse(await fs.readFile('daily-data.json', 'utf8')); } catch {}
-const previous = data[String(day)] || {};
-
-let generated = null;
-if (process.env.OPENAI_API_KEY) {
-  const response = await fetch('https://api.openai.com/v1/responses', {
-    method: 'POST',
-    headers: { 'content-type': 'application/json', authorization: `Bearer ${process.env.OPENAI_API_KEY}` },
-    body: JSON.stringify({
-      model: 'gpt-5.6',
-      input: `Create an original Christian Bible recap for Ava, age ${age}, based only on this reading reference: ${scripture}. Return strict JSON with keys title (short string), summary (array of 3 short age-appropriate paragraphs), and takeaway (1-2 sentences). Do not quote or imitate The Bible Recap. Avoid graphic detail while remaining faithful to Scripture.`
-    })
-  });
-  if (!response.ok) throw new Error(`OpenAI returned ${response.status}: ${await response.text()}`);
-  const result = await response.json();
-  const text = result.output?.flatMap(x => x.content || []).find(x => x.type === 'output_text')?.text;
-  if (text) generated = JSON.parse(text.replace(/^```json\s*|\s*```$/g, ''));
-}
-
-data[String(day)] = {
-  ...previous,
-  scripture,
-  bibleUrl: planUrl,
-  updated: eastern.toISOString().slice(0,10),
-  ...(generated || {})
-};
-await fs.writeFile('daily-data.json', JSON.stringify(data, null, 2) + '\n');
-console.log(`Updated Day ${day}: ${scripture}`);
+const now=new Date();
+const eastern=new Date(now.toLocaleString('en-US',{timeZone:'America/New_York'}));
+const start=new Date(eastern.getFullYear(),0,0);
+const day=Math.floor((eastern-start)/86400000);
+const planUrl=`https://www.bible.com/reading-plans/42399-the-bible-recap-with-tara-leigh-cobble/day/${day}`;
+const page=await fetch(planUrl,{headers:{'user-agent':'Family-Home-Page/1.0'}});
+if(!page.ok)throw new Error(`Bible.com returned ${page.status}`);
+const html=await page.text();
+const clean=html.replace(/<script[\s\S]*?<\/script>/gi,' ').replace(/<style[\s\S]*?<\/style>/gi,' ').replace(/<[^>]+>/g,' ').replace(/&nbsp;/g,' ').replace(/&amp;/g,'&').replace(/\s+/g,' ');
+const books=['Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Joshua','Judges','Ruth','1 Samuel','2 Samuel','1 Kings','2 Kings','1 Chronicles','2 Chronicles','Ezra','Nehemiah','Esther','Job','Psalm','Psalms','Proverbs','Ecclesiastes','Song of Songs','Isaiah','Jeremiah','Lamentations','Ezekiel','Daniel','Hosea','Joel','Amos','Obadiah','Jonah','Micah','Nahum','Habakkuk','Zephaniah','Haggai','Zechariah','Malachi','Matthew','Mark','Luke','John','Acts','Romans','1 Corinthians','2 Corinthians','Galatians','Ephesians','Philippians','Colossians','1 Thessalonians','2 Thessalonians','1 Timothy','2 Timothy','Titus','Philemon','Hebrews','James','1 Peter','2 Peter','1 John','2 John','3 John','Jude','Revelation'];
+const escaped=books.map(x=>x.replace(/ /g,'\\s+')).join('|');
+const matches=[...clean.matchAll(new RegExp(`(?:${escaped})\\s+\\d+(?::\\d+(?:[-–]\\d+)?)?`,'gi'))].map(m=>m[0]);
+const scripture=[...new Set(matches)].slice(0,12).join('; ')||`The Bible Recap — Day ${day}`;
+const themes={Genesis:['God creates, keeps His promises, and begins His rescue story.','God is faithful even when people fail.'],Exodus:['God rescues His people and teaches them how to live with Him.','God is powerful, present, and worthy of trust.'],Leviticus:['God is holy and teaches His people how to worship and live differently.','God cares about holiness, worship, and loving our neighbors.'],Numbers:['God stays faithful while His people learn to trust and obey Him.','We can trust God even when the journey feels long.'],Deuteronomy:['God reminds His people to remember Him, love Him, and obey His good commands.','Remembering what God has done helps us trust Him today.'],Joshua:['God keeps His promises and leads His people with courage.','We can be strong and courageous because God is with us.'],Judges:['People repeatedly wander from God, but He continues to rescue them when they call to Him.','Following God is wiser than simply doing whatever seems right to us.'],Ruth:['God works through loyalty, kindness, and ordinary faithfulness.','God can use small acts of faithfulness in His bigger plan.'],Job:['Job wrestles with suffering while learning that God is wiser and greater than we can fully understand.','We can talk honestly to God and trust Him even when we do not understand.'],Psalms:['God invites His people to bring Him praise, fear, sadness, gratitude, and hope.','Whatever we feel, we can bring it honestly to God.'],Proverbs:['God gives practical wisdom for our words, choices, friendships, work, and hearts.','Wisdom means learning to choose God’s good way.'],Ecclesiastes:['Life cannot give us lasting meaning apart from God.','Enjoy God’s gifts, remember Him, and build your life around what lasts.'],Isaiah:['God is holy and just, yet He promises comfort, rescue, and a coming Savior.','God keeps His promises and His rescue plan is bigger than we can see.'],Jeremiah:['God warns His people to turn back to Him while promising future hope and restoration.','God wants our hearts, not just outward religious actions.'],Lamentations:['God’s people grieve honestly while still remembering His faithfulness and mercy.','Even on very sad days, God’s mercy gives us reason to hope.'],Ezekiel:['God shows that He is holy, judges evil, and promises to restore His people with new hearts.','God can bring new life and change hearts.'],Daniel:['God remains in control while Daniel and his friends faithfully follow Him in a foreign land.','We can choose what is right even when others choose differently because God is with us.'],Ezra:['God brings His people home and helps them rebuild worship around Him.','Putting God first matters when we rebuild and begin again.'],Nehemiah:['God helps His people rebuild Jerusalem while Nehemiah leads with prayer, courage, and wisdom.','Pray, work faithfully, and trust God when a job feels big.'],Esther:['God quietly protects His people as Esther courageously uses her position to help others.','Courage can mean doing the right thing at exactly the right time.'],Matthew:['Jesus is the promised King who teaches, heals, serves, dies, and rises again.','Jesus is the King we can trust and follow.'],Mark:['Jesus shows His authority and servant heart through His actions, teaching, death, and resurrection.','Jesus is powerful and compassionate, and He came to serve and save.'],Luke:['Jesus welcomes outsiders, seeks the lost, and brings God’s good news to everyone.','Jesus cares deeply about people others may overlook.'],John:['Jesus reveals who He is through His words and signs and invites people to believe in Him.','Jesus gives life and invites us to know and trust Him.'],Acts:['The Holy Spirit empowers Jesus’ followers to share the good news as the church grows.','God gives His people courage and power to tell others about Jesus.'],Romans:['Paul explains the good news that we are made right with God through faith in Jesus.','God’s grace is a gift; we do not earn His love.'],Revelation:['Jesus wins, evil will not last forever, and God will make all things new.','We can have hope because Jesus is King and God’s story ends with restoration.']};
+const key=Object.keys(themes).find(k=>new RegExp(`(^|; )${k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}\\b`,'i').test(scripture))||Object.keys(themes).find(k=>scripture.toLowerCase().includes(k.toLowerCase()));
+const theme=themes[key]||['Today’s reading is another part of God’s big story of creation, rescue, faithfulness, and redemption.','Look for what this passage shows you about who God is and how His people respond to Him.'];
+let data={};try{data=JSON.parse(await fs.readFile('daily-data.json','utf8'))}catch{}
+const previous=data[String(day)]||{};
+data[String(day)]={...previous,scripture,bibleUrl:planUrl,updated:eastern.toISOString().slice(0,10),title:`What ${scripture} teaches us about God`,summary:[`Today we’re reading ${scripture}. ${theme[0]}`,`As you read, notice what God does, what people learn, and how this part connects to the Bible’s bigger story. The Bible shows us again and again that God is faithful even when people are not.`],takeaway:theme[1]};
+await fs.writeFile('daily-data.json',JSON.stringify(data,null,2)+'\n');
+console.log(`Updated Day ${day}: ${scripture} — no AI API required.`);
