@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-13T21:36:53.506Z",
+  "updated": "2026-09-13T21:56:21.537Z",
   "timeZone": "America/New_York",
   "events": [
     {
@@ -12,6 +12,12 @@
       "title": "Fox Soccer Games",
       "start": "2026-09-13T13:00:00.000Z",
       "end": "2026-09-13T14:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Cheer",
+      "start": "2026-09-14T22:00:00.000Z",
+      "end": "2026-09-14T23:30:00.000Z",
       "allDay": false
     }
   ]
