@@ -1,81 +1,62 @@
 # Family Home Page — Project Context
 
-## Purpose of this file
-
-This file is the handoff document for future ChatGPT/Codex sessions. A brand-new conversation should read this file **before making changes**, then inspect the current repository files because the repository is the source of truth for implementation details.
-
-The project should be continued from the existing implementation rather than rebuilt from scratch unless explicitly requested.
+## Purpose
+This is the handoff document for future ChatGPT/Codex sessions. Read this file first, then inspect the current repository because the repository is the implementation source of truth. Continue the existing project rather than rebuilding it unless explicitly requested.
 
 ## Product vision
-
-**Family Home Page** is a simple, warm, child-first family dashboard designed primarily for children to use themselves.
-
-The long-term goal is not merely to create a parent dashboard that children happen to see. The interface should help children independently answer two everyday questions:
+**Family Home Page** is a simple, warm, Christian, child-first family dashboard designed primarily for children to use themselves. It should help a child answer:
 
 1. **What is coming up for me and my family?**
 2. **What can I learn or do by myself today?**
 
-The product should gradually become a safe home base where a child can check the family schedule, understand what is happening today and next, participate in family Bible time, learn independently, and build age-appropriate self-sufficiency without needing a parent to interpret the interface for them.
+The long-term goal is a safe home base where children can check schedules, understand what happens next, participate in Bible time, start age-appropriate learning independently, and build useful self-sufficiency without needing a parent to interpret the interface.
 
-When considering new features, actively look for opportunities that help children:
+Favor clear labels, obvious actions, large tap targets, friendly language, strong hierarchy, read-aloud support, and low complexity. Parent/admin configuration belongs behind the grown-up settings gate.
 
-- anticipate upcoming events and routines;
-- understand today, tomorrow, and the near future;
-- recognize which events apply to them;
-- independently start useful learning activities;
-- read, listen, watch, practice, or explore at an age-appropriate level;
-- develop responsibility and confidence through simple self-service interactions;
-- participate in the family's Christian faith and Bible study;
-- use technology intentionally rather than simply consume entertainment.
+## Lightweight profile model
+Profiles are intentionally **not accounts**. Do not turn them into authentication, separate user databases, or substantially different versions of the homepage.
 
-The interface should remain useful to parents, but **children are the primary audience for UX decisions**.
+A profile is a lightweight viewing context. The shared family calendar, daily Bible passage, layout, and core homepage stay essentially the same. A profile primarily changes:
+
+- child name;
+- birthday and calculated age;
+- age band used for Bible/learning presentation;
+- gender (`male` or `female`);
+- profile-specific learning/embed link(s).
+
+Children should be able to switch profiles directly from the normal homepage. Creating, editing, or deleting profiles remains a parent action behind the grown-up math gate.
+
+Current profile data is stored locally in the browser in `family.profiles`, with `family.activeProfile` identifying the selected profile. Legacy `family.childName` / `family.childBirthday` values are maintained for compatibility.
+
+Current default migration/seed behavior creates an Ava profile (female) and Fox profile (male) when no profile collection exists. Do not assume those are the only profiles the architecture will ever support.
+
+### Profile Easter eggs
+The homepage has intentionally rare, playful Easter eggs tied to the selected profile's gender:
+
+- `male` → a cute dinosaur may unexpectedly run across the bottom of the screen;
+- `female` → a cute calico kitten may unexpectedly run across the bottom of the screen.
+
+These should remain **occasional surprises**, not constant animations. They must not block taps, interrupt reading, obscure the main interface for long, or become a reward loop children feel compelled to trigger. The current implementation limits the surprise to at most once per browser session and uses a randomized chance/delay.
+
+Gender currently exists specifically as simple profile metadata supporting this requested personalization. Avoid using it to unnecessarily change educational content, ability assumptions, colors, difficulty, or other core experiences.
 
 ## UX principles
-
-### Child first
-
-Assume a young child may use the page without an adult standing beside them. Prefer clear labels, obvious actions, large tap targets, simple navigation, friendly language, and strong visual hierarchy.
-
-Avoid interfaces that require children to understand technical terms, configuration concepts, dense menus, or complicated workflows.
-
-### Independence over complexity
-
-A feature is especially valuable when it removes the need for a child to ask a parent something they could safely discover or do themselves.
-
-Examples:
-
-- Seeing that cheer, soccer, church, school, or another activity is tomorrow.
-- Knowing what time an activity begins.
-- Hearing a Bible summary read aloud instead of needing an adult to read it.
-- Finding an age-appropriate learning activity and starting it independently.
-
-### Near-term information first
-
-For the calendar, the immediate mental model is **Yesterday / Today / Tomorrow**. These headings should be more visually prominent than individual events. Children should be able to glance at the page and quickly understand what is happening now and what comes next.
-
-### Age appropriate
-
-Content and interaction should adapt when practical to the child's age. The current Bible recap already uses age bands. Future learning features should follow the same philosophy rather than assuming one reading level fits every child.
-
-### Calm and simple
-
-Keep the visual design modern, warm, uncluttered, and family friendly. Do not turn the homepage into a dense enterprise dashboard. New capabilities should be progressively disclosed when possible.
-
-### Faith-forward
-
-The family is Christian. Bible learning is a first-class part of the product rather than a decorative widget. Biblical summaries should be faithful to the text, understandable to children, and focused on helping them know God and understand the events of Scripture.
+- **Child first:** assume a young child may use the page without an adult beside them.
+- **Independence over complexity:** prioritize features children can safely discover/use themselves.
+- **Near-term information first:** Yesterday / Today / Tomorrow is the primary calendar mental model.
+- **Age appropriate:** adapt reading/learning level using the active profile's age band.
+- **Calm and simple:** do not create a dense enterprise dashboard or school LMS.
+- **Faith-forward:** Bible learning is a first-class feature and should faithfully explain Scripture.
+- **Shared family experience:** profiles personalize only what needs personalization; do not fragment the family dashboard.
 
 ## Current application
-
-The site is a static GitHub Pages application in:
-
-`jrampey/Family-Home-Page`
+Repository: `jrampey/Family-Home-Page`
 
 Default branch: `main`
 
-The current implementation is intentionally lightweight and does not require an OpenAI API key or application backend.
+Static GitHub Pages application; intentionally lightweight with no required OpenAI API/application backend.
 
-Before changing behavior, inspect at minimum:
+Inspect at minimum before changing behavior:
 
 - `index.html`
 - `app.js`
@@ -84,242 +65,85 @@ Before changing behavior, inspect at minimum:
 - `scripts/update-daily.mjs`
 - `scripts/update-calendar.mjs`
 - `.github/workflows/daily-bible-recap.yml`
+- `README.md`
 - `favicon.svg`
-
-Do not assume this document contains the newest implementation details if the code differs. **Current repository code wins.**
 
 ## Current major features
 
-### 1. Family calendar
+### Family calendar
+Simplified Apple Calendar agenda showing Yesterday / Today / Tomorrow. Day headings should be more prominent than events.
 
-The homepage displays a simplified agenda built from the family's Apple Calendar.
+Architecture:
 
-The primary presentation is:
+**Apple public ICS → GitHub Actions → `scripts/update-calendar.mjs` → sanitized `calendar-data.json` → GitHub Pages frontend**
 
-- Yesterday
-- Today
-- Tomorrow
+Feed URL is stored in GitHub Actions secret `APPLE_CALENDAR_URL`. Never expose it. Calendar processing uses `America/New_York` / Eastern Time. Only a small near-term window should be published.
 
-These day headings are intentionally more prominent than the event rows beneath them.
+### Daily Bible Recap for kids
+Follows the current day of The Bible Recap reading plan and shows the reading, Bible.com link, YouTube recap link/search, annual progress, kid-friendly Scripture summary, and takeaway.
 
-Calendar data is not fetched directly from Apple by the browser. The architecture is:
+Daily summaries should be passage-specific and roughly a **2–3 minute read**, covering important people, major events, conflict, decisions, consequences, what God says/does, His character, and connection to the larger biblical story.
 
-**Apple public ICS feed → GitHub Actions → `scripts/update-calendar.mjs` → sanitized `calendar-data.json` → GitHub Pages frontend**
+Current age bands are approximately 3–5, 6–8, 9–11, 12–14, and 15+.
 
-The Apple feed URL is stored in the GitHub Actions secret:
+### Read aloud
+The Kid-Friendly Summary includes Read aloud / Stop using browser `speechSynthesis`, with a slightly slower rate appropriate for children. This is a core example of independence-oriented design.
 
-`APPLE_CALENDAR_URL`
+### Parent settings gate
+Settings are protected by a simple randomized grown-up math challenge before opening. This is a child deterrent, **not authentication/security**.
 
-Never commit or expose the actual calendar URL/token.
-
-Calendar processing uses `America/New_York` / Eastern Time.
-
-The updater currently handles common Apple recurring-event behavior including recurring rules, exclusions, additional dates, recurrence overrides, and cancelled overrides. Inspect the current script before changing recurrence behavior.
-
-Only a small near-term calendar window is intentionally published to the static site rather than the family's entire calendar history.
-
-### 2. Daily Bible Recap for kids
-
-The page determines the current day of the year and follows The Bible Recap reading plan on Bible.com.
-
-The homepage shows:
-
-- current reading/day;
-- Bible.com reading link;
-- YouTube recap search/link;
-- progress through the annual reading plan;
-- a kid-friendly Scripture summary;
-- a short takeaway/big idea.
-
-The summary should not merely provide a generic devotional thought. It should explain the **important events in the actual chapters** so a child understands what happened.
-
-Target length for the daily kid-friendly recap is approximately a **2–3 minute read**.
-
-Good summaries should cover, where relevant:
-
-- important people;
-- major events;
-- the central problem or conflict;
-- important decisions;
-- consequences;
-- what God says or does;
-- what the passage reveals about God's character;
-- how the reading connects to the larger biblical story.
-
-Keep the language understandable for the selected child's age without stripping away meaningful details from Scripture.
-
-### 3. Age-aware child profile
-
-The child name and birthday are stored locally in the browser and used to calculate age.
-
-Current age bands in `app.js` are approximately:
-
-- ages 3–5;
-- ages 6–8;
-- ages 9–11;
-- ages 12–14;
-- ages 15+.
-
-The presentation of Bible content changes based on the child's age band.
-
-Do not hard-code product design around one specific child. The current profile may have defaults, but the architecture should increasingly support a family with multiple children.
-
-### 4. Read-aloud Bible summary
-
-The Kid-Friendly Summary card includes a **Read aloud** control.
-
-It currently uses the browser's built-in Web Speech / `speechSynthesis` support, so no external speech API is required.
-
-The experience includes:
-
-- Read aloud;
-- Reading state;
-- Stop control;
-- the summary and takeaway spoken aloud;
-- a slightly slower speaking rate suitable for children.
-
-This is an important example of the project's child-independence philosophy: a child who cannot comfortably read the entire recap can still use the feature independently.
-
-### 5. Settings
-
-The settings interface currently includes:
-
-- child profile;
-- Apple Calendar connection status;
-- placeholder Skylight Calendar URL setting;
-- generic embed URL setting.
-
-Settings are primarily a parent/admin surface. Avoid making children interact with settings to use normal daily features.
+Parent settings currently cover profile configuration plus family integrations/placeholders such as Apple Calendar, Skylight, and embeds.
 
 ## Automation
-
-GitHub Actions workflow:
-
-`.github/workflows/daily-bible-recap.yml`
-
-The workflow updates the Bible recap and Apple Calendar data and commits changed generated data back to the repository.
-
-The workflow has previously failed because of JavaScript syntax errors introduced into `scripts/update-daily.mjs`. When modifying generation scripts, be careful with large inline data structures and validate JavaScript syntax before considering the change complete.
-
-## Bible summary generation direction
-
-The current daily updater contains deterministic content/logic rather than relying on a live AI API call.
-
-The desired direction is **specific, detailed, reliable daily Scripture coverage**, not vague template text.
-
-If expanding coverage, prioritize accurate passage-specific summaries. A fallback can exist, but it should not become the normal user experience.
-
-Do not silently fabricate Scripture details. When building or revising summaries, preserve biblical context and distinguish interpretation from events explicitly described by the text.
-
-## Calendar direction
-
-Calendar development should increasingly make schedules understandable to children rather than simply displaying raw calendar events.
-
-Useful future directions include concepts such as:
-
-- identifying which family member an event belongs to;
-- child-specific views;
-- visual icons for common activities;
-- countdowns such as "in 2 days" or "tomorrow";
-- simple morning/evening views;
-- recurring routine awareness;
-- helping children prepare for upcoming activities;
-- eventually showing what they need to bring or do before an event.
-
-These are product directions, not requirements to implement all at once.
+`.github/workflows/daily-bible-recap.yml` updates Bible and Apple Calendar generated data and commits changes. Generator changes must be syntax-valid; this workflow has previously failed due to a JavaScript syntax error in the daily generator.
 
 ## Learning direction
+Future features should help children teach themselves safely and independently. Potential areas include Bible learning, reading/phonics, math, handwriting, educational videos, homeschool activities, goals, quizzes/review, read-aloud content, activity choices, and simple progress indicators.
 
-The larger product vision extends beyond the Bible recap. Future features should explore ways for children to **teach themselves safely and independently** from the family homepage.
-
-Potential categories include:
-
-- Bible learning;
-- reading/phonics;
-- math practice;
-- handwriting or letter practice;
-- age-appropriate educational videos;
-- homeschool activities;
-- daily or weekly learning goals;
-- simple quizzes and review;
-- read-aloud content;
-- independent activity choices;
-- progress or accomplishment indicators that encourage healthy learning habits.
-
-The goal is not to recreate a full school LMS. The homepage should act as an approachable launch point: a child sees what is relevant today and can begin learning with minimal adult setup.
-
-Where possible, design learning features around a loop like:
+Prefer the loop:
 
 **See what I can learn → choose it myself → receive simple instruction → practice → know when I am done.**
 
-## Family-dashboard direction
+Profile-specific embedded links are expected to become an important way to surface age-appropriate learning resources without changing the overall homepage experience.
 
-The homepage can grow into a broader child-friendly family operating surface, but additions should earn their space.
+## Calendar direction
+Useful future directions include identifying who an event belongs to, child-specific relevance, icons, countdowns, routines, preparation prompts, and simple "what do I need?" checklists. Keep the underlying family calendar shared unless there is a strong reason not to.
 
-Potential future areas include:
+## Privacy/security
+The repository/site may be publicly accessible through GitHub Pages. Treat frontend/generated data as potentially public.
 
-- chores/responsibilities;
-- routines;
-- weather when it affects what children need to wear or bring;
-- birthdays and family milestones;
-- meal awareness;
-- homeschool schedule;
-- family announcements;
-- simple preparation checklists;
-- child-specific encouragement or goals.
+Never expose calendar tokens, GitHub secrets, addresses, private notes, medical information, school details, or unnecessary long calendar histories. If genuinely private data becomes necessary, use authenticated infrastructure rather than placing it in the static site.
 
-Prefer information that changes a child's next action over passive information that merely makes the dashboard look busy.
-
-## Privacy and security
-
-The repository/site may be publicly accessible through GitHub Pages. Treat all generated frontend data as potentially public.
-
-Therefore:
-
-- Never commit private calendar feed URLs or tokens.
-- Do not expose secrets from GitHub Actions.
-- Minimize calendar information published to `calendar-data.json`.
-- Avoid adding sensitive family information simply because it would be technically convenient.
-- Think carefully before exposing addresses, private notes, medical information, school details, or long calendar histories.
-
-If future features require genuinely private family data, consider authenticated hosting or a backend rather than pushing increasingly sensitive data into a public static site.
+The math parent gate does not make public/static data private.
 
 ## Engineering principles
-
 1. Inspect current files before editing.
-2. Treat the repository as the implementation source of truth.
-3. Keep the site fast and simple enough for children to use on phones and tablets.
+2. Repository code wins over this document if they differ.
+3. Keep the site fast and simple on phones/tablets.
 4. Prefer progressive enhancement and graceful failure.
-5. Avoid unnecessary APIs, frameworks, dependencies, and infrastructure.
-6. Keep parent configuration separate from the child's everyday experience.
-7. Validate automated scripts so a homepage feature does not break scheduled rebuilds.
-8. Preserve Eastern Time behavior for family calendar/date logic unless intentionally changed.
-9. Never expose credentials, secret URLs, or bearer-like tokens.
-10. When proposing features, explicitly consider whether they help a child know **what is coming up** or **learn/do something independently**.
+5. Avoid unnecessary APIs/frameworks/dependencies.
+6. Keep parent configuration separate from child use.
+7. Validate automation scripts before considering changes complete.
+8. Preserve Eastern Time behavior unless intentionally changed.
+9. Never expose credentials or bearer-like URLs.
+10. Keep profiles lightweight; do not accidentally build an account system.
+11. Ask whether a feature helps a child know what is coming or learn/do something independently.
 
 ## Product decision filter
-
-Before implementing a new homepage feature, ask:
-
 > Does this make it easier for a child to understand their day, prepare for what is coming, learn something useful, practice a skill, participate in family life, or do something appropriate without needing an adult to guide every step?
 
-If yes, it likely fits the project.
-
-If it primarily adds adult-oriented administration, technical complexity, passive data, or visual clutter, it should probably live behind settings, be simplified, or not be added.
+If not, it probably should not occupy the primary child-facing homepage.
 
 ## Instructions for a new ChatGPT/Codex conversation
-
-When a user starts a new conversation about this repository:
-
 1. Read `PROJECT_CONTEXT.md` first.
-2. Inspect the current repository structure and relevant files.
-3. Understand existing behavior before proposing or making changes.
-4. Preserve the child-first product vision.
-5. Preserve working calendar/Bible automation unless the requested change requires modifying it.
-6. Check scheduled workflow implications whenever changing generated data or scripts.
-7. Do not require the user to re-explain decisions already documented here.
+2. Inspect current repository files.
+3. Understand existing behavior before changing it.
+4. Preserve the child-first and lightweight-profile vision.
+5. Preserve working calendar/Bible automation unless necessary.
+6. Check workflow implications when modifying generators/data.
+7. Do not make the user re-explain decisions documented here.
 8. Continue iteratively from the current implementation.
 
-The core idea to carry forward is:
+Core idea:
 
-**Family Home Page should become a safe, simple home base that children can use to understand what is coming up in their lives and increasingly teach themselves useful things.**
+**Family Home Page should become a safe, simple home base children can use to understand what is coming up and increasingly teach themselves useful things, with lightweight profiles changing only the small pieces that genuinely need to be age- or child-specific.**
