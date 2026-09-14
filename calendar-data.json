@@ -1,13 +1,7 @@
 {
-  "updated": "2026-09-14T00:12:34.133Z",
+  "updated": "2026-09-14T05:01:35.972Z",
   "timeZone": "America/New_York",
   "events": [
-    {
-      "title": "Fox Soccer",
-      "start": "2026-09-12T13:00:00.000Z",
-      "end": "2026-09-12T14:00:00.000Z",
-      "allDay": false
-    },
     {
       "title": "Fox Soccer Games",
       "start": "2026-09-13T13:00:00.000Z",
@@ -18,6 +12,12 @@
       "title": "Cheer",
       "start": "2026-09-14T22:00:00.000Z",
       "end": "2026-09-14T23:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Ava - Neurology",
+      "start": "2026-09-15T16:00:00.000Z",
+      "end": "2026-09-15T17:00:00.000Z",
       "allDay": false
     }
   ]
