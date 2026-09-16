@@ -1,6 +1,6 @@
 # Self-hosted deployment
 
-The self-hosted version stores personal data in `family-home.sqlite`, outside the public web root/repository. The database contains profiles, birthdays, gender, per-profile theme/embed settings, general settings, and synchronized calendar events.
+The self-hosted version stores personal data in `family-home.sqlite`, outside the public web root/repository. The database contains profiles, birthdays, gender, per-profile theme/embed settings, general settings, calendar sync metadata, and synchronized calendar events.
 
 ## Fastest deployment: Docker Compose
 
@@ -36,6 +36,15 @@ Use a reverse proxy such as Caddy/nginx for HTTPS when exposing the site outside
 
 No manual schema step is needed. On first start the server creates the SQLite schema and a generic `Default` profile. No family names, birthdays, or calendar events are seeded in source control.
 
+## Application API
+
+SQLite is the source of truth for private application state.
+
+- `GET /api/state` returns profiles, the active profile, family settings, and lightweight calendar metadata (`updated` and `eventCount`).
+- `GET /api/calendar` returns the calendar metadata plus the actual event records.
+
+Calendar events intentionally remain outside the main state payload so initial application state stays small and future date-window queries can be added without changing the profile/settings API.
+
 ## Calendar synchronization
 
 Keep `APPLE_CALENDAR_URL` in the server `.env`, never in source control. The existing `scripts/update-calendar.mjs` can fetch/sanitize the ICS feed. Then run:
@@ -45,7 +54,11 @@ node scripts/update-calendar.mjs
 node scripts/sync-calendar-to-sqlite.mjs
 ```
 
-Schedule those commands hourly with cron/systemd on the server. The second command imports the generated calendar window into SQLite. The web application should consume `/api/calendar` rather than a public JSON file.
+Schedule those commands hourly with cron/systemd on the server. The second command imports the generated calendar window into SQLite. The deployed web application consumes `/api/calendar`; generated calendar JSON is only an intermediate synchronization artifact and is ignored by Git.
+
+The intended runtime flow is:
+
+`Apple ICS → server synchronization → SQLite → /api/calendar → Family Home Page`
 
 ## Browser-profile migration
 
