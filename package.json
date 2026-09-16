@@ -1,0 +1,15 @@
+{
+  "name": "family-home-page",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Self-hosted Family Home Page with private SQLite storage",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node --watch server.mjs"
+  },
+  "engines": {"node": ">=22"},
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
