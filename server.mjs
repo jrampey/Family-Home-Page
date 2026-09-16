@@ -1,0 +1,32 @@
+import express from 'express';
+import { DatabaseSync } from 'node:sqlite';
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import { fileURLToPath } from 'node:url';
+
+const ROOT=path.dirname(fileURLToPath(import.meta.url));
+const DATA_DIR=process.env.DATA_DIR||path.join(ROOT,'data');
+fs.mkdirSync(DATA_DIR,{recursive:true});
+const db=new DatabaseSync(path.join(DATA_DIR,'family-home.sqlite'));
+db.exec(`PRAGMA journal_mode=WAL; PRAGMA foreign_keys=ON;
+CREATE TABLE IF NOT EXISTS profiles(id TEXT PRIMARY KEY,name TEXT NOT NULL,birthday TEXT NOT NULL DEFAULT '',gender TEXT NOT NULL DEFAULT '',embed_url TEXT NOT NULL DEFAULT '',theme TEXT NOT NULL DEFAULT 'green',created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE IF NOT EXISTS settings(key TEXT PRIMARY KEY,value TEXT NOT NULL DEFAULT '',updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE IF NOT EXISTS calendar_events(id TEXT PRIMARY KEY,title TEXT NOT NULL,start TEXT NOT NULL,end TEXT,all_day INTEGER NOT NULL DEFAULT 0,source TEXT NOT NULL DEFAULT 'apple',updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE IF NOT EXISTS calendar_meta(key TEXT PRIMARY KEY,value TEXT NOT NULL DEFAULT '');`);
+if(!db.prepare('SELECT 1 FROM profiles LIMIT 1').get()) db.prepare("INSERT INTO profiles(id,name,theme) VALUES('default','Default','green')").run();
+if(!db.prepare("SELECT 1 FROM settings WHERE key='activeProfile'").get()) db.prepare("INSERT INTO settings(key,value) VALUES('activeProfile','default')").run();
+
+const q={profiles:db.prepare('SELECT id,name,birthday,gender,embed_url AS embedUrl,theme FROM profiles ORDER BY created_at,id'),setting:db.prepare('SELECT value FROM settings WHERE key=?'),upsertSetting:db.prepare("INSERT INTO settings(key,value,updated_at) VALUES(?,?,CURRENT_TIMESTAMP) ON CONFLICT(key) DO UPDATE SET value=excluded.value,updated_at=CURRENT_TIMESTAMP"),events:db.prepare('SELECT id,title,start,end,all_day AS allDay FROM calendar_events ORDER BY start'),clearEvents:db.prepare('DELETE FROM calendar_events'),putEvent:db.prepare('INSERT INTO calendar_events(id,title,start,end,all_day,source) VALUES(?,?,?,?,?,?)')};
+const app=express();app.use(express.json({limit:'1mb'}));
+const apiKey=process.env.ADMIN_API_KEY||'';
+const admin=(req,res,next)=>{if(!apiKey)return next();const got=req.get('x-admin-key')||'';if(got.length!==apiKey.length||!crypto.timingSafeEqual(Buffer.from(got),Buffer.from(apiKey)))return res.status(401).json({error:'Unauthorized'});next()};
+app.get('/api/state',(req,res)=>{const settings=Object.fromEntries(db.prepare('SELECT key,value FROM settings').all().map(x=>[x.key,x.value]));res.json({profiles:q.profiles.all(),activeProfile:settings.activeProfile||'default',settings:{skylightCalendar:settings.skylightCalendar||'',embedUrl:settings.embedUrl||''}})});
+app.put('/api/profiles/:id',admin,(req,res)=>{const p=req.body||{},id=String(req.params.id);db.prepare(`INSERT INTO profiles(id,name,birthday,gender,embed_url,theme,updated_at) VALUES(?,?,?,?,?,?,CURRENT_TIMESTAMP) ON CONFLICT(id) DO UPDATE SET name=excluded.name,birthday=excluded.birthday,gender=excluded.gender,embed_url=excluded.embed_url,theme=excluded.theme,updated_at=CURRENT_TIMESTAMP`).run(id,String(p.name||'Default'),String(p.birthday||''),String(p.gender||''),String(p.embedUrl||''),String(p.theme||'green'));res.json({ok:true})});
+app.delete('/api/profiles/:id',admin,(req,res)=>{const id=String(req.params.id),count=db.prepare('SELECT COUNT(*) AS n FROM profiles').get().n;if(count<=1)return res.status(400).json({error:'Keep at least one profile'});db.prepare('DELETE FROM profiles WHERE id=?').run(id);if(q.setting.get('activeProfile')?.value===id)q.upsertSetting.run('activeProfile',q.profiles.get()?.id||'default');res.json({ok:true})});
+app.put('/api/settings/:key',admin,(req,res)=>{const allowed=new Set(['activeProfile','skylightCalendar','embedUrl']);if(!allowed.has(req.params.key))return res.status(400).json({error:'Unknown setting'});q.upsertSetting.run(req.params.key,String(req.body?.value||''));res.json({ok:true})});
+app.get('/api/calendar',(req,res)=>{res.json({updated:q.setting.get('calendarUpdated')?.value||null,events:q.events.all().map(e=>({...e,allDay:!!e.allDay}))})});
+app.post('/api/migrate-browser',admin,(req,res)=>{const {profiles=[],activeProfile,settings={}}=req.body||{};db.exec('BEGIN');try{for(const p of profiles)db.prepare(`INSERT INTO profiles(id,name,birthday,gender,embed_url,theme,updated_at) VALUES(?,?,?,?,?,?,CURRENT_TIMESTAMP) ON CONFLICT(id) DO UPDATE SET name=excluded.name,birthday=excluded.birthday,gender=excluded.gender,embed_url=excluded.embed_url,theme=excluded.theme,updated_at=CURRENT_TIMESTAMP`).run(String(p.id),String(p.name||'Default'),String(p.birthday||''),String(p.gender||''),String(p.embedUrl||''),String(p.theme||'green'));if(activeProfile)q.upsertSetting.run('activeProfile',String(activeProfile));for(const key of ['skylightCalendar','embedUrl'])if(settings[key]!=null)q.upsertSetting.run(key,String(settings[key]));db.exec('COMMIT');res.json({ok:true})}catch(e){db.exec('ROLLBACK');throw e}});
+app.use(express.static(ROOT,{index:'index.html',extensions:['html']}));
+app.use((err,req,res,next)=>{console.error(err);res.status(500).json({error:'Server error'})});
+const port=Number(process.env.PORT||3000);app.listen(port,'0.0.0.0',()=>console.log(`Family Home Page listening on :${port}; SQLite: ${DATA_DIR}`));
