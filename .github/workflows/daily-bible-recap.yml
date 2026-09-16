@@ -25,6 +25,11 @@ jobs:
       - name: Update Bible recap
         run: node scripts/update-daily.mjs
 
+      - name: Update Apple Calendar
+        env:
+          APPLE_CALENDAR_URL: ${{ secrets.APPLE_CALENDAR_URL }}
+        run: node scripts/update-calendar.mjs
+
       - name: Commit updated data
         run: |
           if git diff --quiet; then
@@ -35,6 +40,6 @@ jobs:
           git config user.name "family-home-page-bot"
           git config user.email "github-actions@users.noreply.github.com"
 
-          git add daily-data.json
+          git add daily-data.json calendar-data.json
           git commit -m "Update family home page data"
           git push
