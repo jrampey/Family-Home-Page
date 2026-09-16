@@ -1,0 +1,9 @@
+import { DatabaseSync } from 'node:sqlite';
+import fs from 'node:fs';
+import path from 'node:path';
+
+const dataDir=process.env.DATA_DIR||path.resolve('data');fs.mkdirSync(dataDir,{recursive:true});
+const db=new DatabaseSync(path.join(dataDir,'family-home.sqlite'));
+db.exec(`CREATE TABLE IF NOT EXISTS calendar_events(id TEXT PRIMARY KEY,title TEXT NOT NULL,start TEXT NOT NULL,end TEXT,all_day INTEGER NOT NULL DEFAULT 0,source TEXT NOT NULL DEFAULT 'apple',updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP);CREATE TABLE IF NOT EXISTS settings(key TEXT PRIMARY KEY,value TEXT NOT NULL DEFAULT '',updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP);`);
+const source=process.env.CALENDAR_JSON||'calendar-data.json';if(!fs.existsSync(source))throw new Error(`${source} not found. Run scripts/update-calendar.mjs first.`);const data=JSON.parse(fs.readFileSync(source,'utf8'));
+db.exec('BEGIN');try{db.prepare("DELETE FROM calendar_events WHERE source='apple'").run();const put=db.prepare('INSERT INTO calendar_events(id,title,start,end,all_day,source) VALUES(?,?,?,?,?,\'apple\')');for(const [i,e] of (data.events||[]).entries())put.run(String(e.id||`apple-${i}-${e.start}`),String(e.title||'Event'),String(e.start),e.end?String(e.end):null,e.allDay?1:0);db.prepare("INSERT INTO settings(key,value,updated_at) VALUES('calendarUpdated',?,CURRENT_TIMESTAMP) ON CONFLICT(key) DO UPDATE SET value=excluded.value,updated_at=CURRENT_TIMESTAMP").run(String(data.updated||new Date().toISOString()));db.exec('COMMIT');console.log(`Stored ${(data.events||[]).length} calendar events in SQLite`)}catch(e){db.exec('ROLLBACK');throw e}
