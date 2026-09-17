@@ -20,6 +20,8 @@ jobs:
           node-version: '22'
       - name: Update Bible recap
         run: node scripts/update-daily.mjs
+      - name: Build age-specific Bible recaps
+        run: node scripts/build-age-summaries.mjs
       - name: Update Apple Calendar
         env:
           APPLE_CALENDAR_URL: ${{ secrets.APPLE_CALENDAR_URL }}
