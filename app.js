@@ -5,8 +5,6 @@ const style=document.createElement('style');style.textContent=`.agenda-day h3{fo
 const PROFILE_KEY='family.profiles',ACTIVE_KEY='family.activeProfile';
 function readProfiles(){try{const p=JSON.parse(localStorage.getItem(PROFILE_KEY)||'[]');if(Array.isArray(p)&&p.length)return p}catch{}const seed=[{id:'default',name:'Default',birthday:'',gender:'',embedUrl:'',theme:'green'}];localStorage.setItem(PROFILE_KEY,JSON.stringify(seed));return seed}
 function writeProfiles(p){localStorage.setItem(PROFILE_KEY,JSON.stringify(p))}
-function migrateKatieProfile(){const migrationKey='family.profileMigration.katie-1986-v1';if(localStorage.getItem(migrationKey))return;const p=readProfiles();if(!p.some(x=>String(x.name||'').trim().toLowerCase()==='katie'))p.push({id:'katie',name:'Katie',birthday:'1986-01-01',gender:'female',embedUrl:'',theme:'green'});writeProfiles(p);localStorage.setItem(migrationKey,'1')}
-migrateKatieProfile();
 let profiles=readProfiles();let activeId=localStorage.getItem(ACTIVE_KEY)||profiles[0].id;if(!profiles.some(p=>p.id===activeId))activeId=profiles[0].id;localStorage.setItem(ACTIVE_KEY,activeId);let active=profiles.find(p=>p.id===activeId)||profiles[0];
 if(active.name&&active.name!=='Default')localStorage.setItem('family.childName',active.name);if(active.birthday)localStorage.setItem('family.childBirthday',active.birthday);
 function applyTheme(themeName){const theme=THEMES[themeName]||THEMES.green;const root=document.documentElement;root.style.setProperty('--accent',theme.accent);root.style.setProperty('--profile-soft',theme.soft);root.style.setProperty('--profile-soft-strong',theme.softStrong);document.querySelector('meta[name="theme-color"]')?.setAttribute('content',theme.accent)}
