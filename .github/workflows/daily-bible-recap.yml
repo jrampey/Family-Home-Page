@@ -32,6 +32,6 @@ jobs:
           fi
           git config user.name "family-home-page-bot"
           git config user.email "github-actions@users.noreply.github.com"
-          git add daily-data.json calendar-data.json
+          git add daily-data.json personal/calendar-data.json
           git commit -m "Update family home page data"
           git push
