@@ -11,7 +11,7 @@ if(!entry)throw new Error(`No Bible recap found for day ${day}`);
 const scripture=entry.scripture||`Day ${day}`;
 const source=Array.isArray(entry.summary)?entry.summary:[];
 const takeaway=entry.takeaway||'God is faithful, good, and worthy of our trust.';
-const base=source.length?source:[`Today we are reading ${scripture}.`,'God is at work in the lives of His people.','God wants His people to know Him and trust Him.'];
+const base=source.length?source:[`Today we are reading ${scripture}.`];
 
 // Every age version is designed to take roughly 3–5 minutes when read aloud at an age-appropriate pace.
 // The goal is not merely simpler vocabulary: preserve the important people, events, sequence, consequences,
@@ -20,10 +20,9 @@ function expand(parts,extras,targetMin){
   const out=[...parts.filter(Boolean),...extras.filter(Boolean)];
   let words=out.join(' ').trim().split(/\s+/).filter(Boolean).length;
   const reinforcement=[
-    `As you listen, remember that this is one part of the Bible’s big story. God is showing His people who He is and teaching them to trust Him.`,
-    `Think back through the story in order: who was there, what problem happened, what choices were made, and what happened next? Those details help us understand why the passage matters.`,
-    `Most importantly, ask what we learn about God. He is not just a character in the story. The Bible shows us His character, His promises, His justice, His mercy, His wisdom, and His faithfulness.`,
-    `When we finish, we can talk about one thing we learned about God and one way that truth can help us today.`
+    `Retell the events we just heard in the same order they happened. Remember the people involved, what they said or did, and what happened next.`,
+    `Now connect those actual events to what they reveal about God—His character, promises, justice, mercy, wisdom, faithfulness, and authority.`,
+    `Finally, choose one specific event from today’s reading that helps explain this truth: ${takeaway}`
   ];
   for(const p of reinforcement){if(words>=targetMin)break;out.push(p);words+=p.split(/\s+/).length}
   return out;
