@@ -1,13 +1,7 @@
 {
-  "updated": "2026-09-21T01:06:06.170Z",
+  "updated": "2026-09-21T06:21:37.798Z",
   "timeZone": "America/New_York",
   "events": [
-    {
-      "title": "Fox Soccer Games",
-      "start": "2026-09-19T19:30:00.000Z",
-      "end": "2026-09-19T20:30:00.000Z",
-      "allDay": false
-    },
     {
       "title": "Fox Soccer Games",
       "start": "2026-09-20T13:00:00.000Z",
@@ -24,6 +18,12 @@
       "title": "Cheer",
       "start": "2026-09-21T22:00:00.000Z",
       "end": "2026-09-21T23:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "School",
+      "start": "2026-09-22T13:00:00.000Z",
+      "end": "2026-09-22T16:00:00.000Z",
       "allDay": false
     }
   ]
