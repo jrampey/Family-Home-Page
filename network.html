@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#56725f">
+<title>Home Network • Family Home</title>
+<style>
+:root{--bg:#f5f5f7;--card:#fff;--ink:#1d1d1f;--muted:#6e6e73;--accent:#56725f;--line:rgba(0,0,0,.08);--good:#4f765c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,sans-serif;line-height:1.5}
+main{width:min(1100px,calc(100% - 32px));margin:auto;padding:28px 0 70px}header{margin:0 0 22px;padding:0 4px}.eyebrow{margin:0 0 6px;color:var(--accent);font-weight:800;font-size:.82rem}h1{font-size:clamp(2.5rem,7vw,4.4rem);line-height:1;letter-spacing:-.055em;margin:0 0 8px}h2{letter-spacing:-.025em;margin:0}.sub,.muted{color:var(--muted)}.nav{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.btn{display:inline-flex;align-items:center;gap:7px;border:0;border-radius:999px;padding:10px 16px;background:var(--accent);color:#fff;font:inherit;font-weight:750;text-decoration:none}.btn.secondary{background:#fff;color:var(--ink);box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:var(--card);border-radius:26px;padding:24px;box-shadow:0 8px 30px rgba(0,0,0,.035)}.wide{grid-column:span 2}.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:16px}.icon{font-size:1.65rem}.status{font-size:.75rem;font-weight:800;padding:5px 9px;border-radius:999px;background:#eef2ed;color:var(--good)}.services{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.service{display:block;text-decoration:none;color:inherit;background:#f5f5f7;border-radius:18px;padding:15px;transition:.15s}.service:hover{transform:translateY(-1px);background:#eeeef0}.service strong{display:block}.service span{font-size:.78rem;color:var(--muted)}.metric{font-size:2rem;font-weight:850;letter-spacing:-.04em}.label{font-size:.78rem;color:var(--muted)}.note{font-size:.85rem;color:var(--muted);margin:12px 0 0}.topology{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.83rem;line-height:1.8;background:#f5f5f7;padding:16px;border-radius:18px;white-space:pre-wrap}.footer{margin:24px 4px;color:var(--muted);font-size:.8rem}
+@media(max-width:800px){.grid{grid-template-columns:1fr}.wide{grid-column:auto}.services{grid-template-columns:1fr}main{width:calc(100% - 20px);padding-top:22px}.card{padding:21px}}
+</style>
+</head><body><main>
+<header><p class="eyebrow">Rampey Home</p><h1>Home Network</h1><p class="sub">A simple launchpad for the services that keep the house running.</p><nav class="nav"><a class="btn secondary" href="index.html">← Family Home</a><button class="btn" id="refresh">↻ Refresh status</button></nav></header>
+<div class="grid">
+<section class="card wide"><div class="card-head"><div><p class="eyebrow">Quick Access</p><h2>Services</h2></div><span class="status">Local network</span></div><div class="services">
+<a class="service" data-service="pihole" href="http://pi.hole/admin/" target="_blank"><strong>🛡️ Pi-hole</strong><span>DNS & ad blocking</span></a>
+<a class="service" data-service="jellyfin" href="http://rampeyserver:8096" target="_blank"><strong>🎬 Jellyfin</strong><span>Home media server</span></a>
+<a class="service" data-service="mister" href="http://192.168.4.56" target="_blank"><strong>🎮 MiSTerPi</strong><span>FPGA gaming system</span></a>
+<a class="service" href="https://my.eero.com/" target="_blank" rel="noreferrer"><strong>📡 eero</strong><span>Home network</span></a>
+</div><p class="note">Local links work while connected to your home network. Service addresses can be changed in this page's configuration block.</p></section>
+<section class="card"><div class="card-head"><div><p class="eyebrow">Internet</p><h2>Kinetic Fiber</h2></div><span class="icon">🌐</span></div><div class="metric" id="internetState">Ready</div><div class="label">Gateway: Kinetic ONT → eero 7</div></section>
+<section class="card"><div class="card-head"><div><p class="eyebrow">Server</p><h2>Rampey Server</h2></div><span class="icon">🖥️</span></div><div class="metric">Windows 11</div><div class="label">Docker • SMB • Jellyfin • Pi-hole</div></section>
+<section class="card wide"><div class="card-head"><div><p class="eyebrow">Network Map</p><h2>At a glance</h2></div><span class="icon">🗺️</span></div><div class="topology">Kinetic Fiber
+     │
+ Kinetic ONT
+     │
+   eero 7
+     │
+ ┌───┴────────────────────────┐
+ │                            │
+Rampey Server              MiSTerPi
+Windows 11                 192.168.4.56
+ │
+ ├─ Docker
+ ├─ Pi-hole
+ ├─ Jellyfin
+ └─ SMB storage</div></section>
+<section class="card"><div class="card-head"><div><p class="eyebrow">Remote Access</p><h2>Tailscale</h2></div><span class="icon">🔐</span></div><p class="muted">Private remote access to your home network without exposing services directly to the internet.</p><a class="btn secondary" href="https://login.tailscale.com/admin/machines" target="_blank" rel="noreferrer">Open Tailscale</a></section>
+<section class="card"><div class="card-head"><div><p class="eyebrow">MiSTerPi</p><h2>Game Library</h2></div><span class="icon">🕹️</span></div><p class="muted">MiSTer-Audit, Zaparoo, Update All, and backup tooling can eventually report status here.</p><a class="btn secondary" href="https://github.com/jrampey/MiSTer-Audit" target="_blank" rel="noreferrer">Open MiSTer-Audit</a></section>
+<section class="card"><div class="card-head"><div><p class="eyebrow">Next Up</p><h2>Monitoring</h2></div><span class="icon">📈</span></div><p class="muted">This page is ready to grow into live monitoring with Uptime Kuma, Beszel, Speedtest Tracker, Scrutiny, and ntfy.</p></section>
+</div><p class="footer">Family Home • Network dashboard</p>
+<script>
+const CONFIG={jellyfin:'http://rampeyserver:8096',mister:'http://192.168.4.56',pihole:'http://pi.hole/admin/'};
+for(const [key,url] of Object.entries(CONFIG)){const el=document.querySelector('[data-service="'+key+'"]');if(el)el.href=url}
+document.getElementById('refresh').onclick=()=>location.reload();
+</script></main></body></html>
