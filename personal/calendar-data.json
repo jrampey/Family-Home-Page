@@ -1,13 +1,7 @@
 {
-  "updated": "2026-09-25T01:31:16.138Z",
+  "updated": "2026-09-25T07:49:31.415Z",
   "timeZone": "America/New_York",
   "events": [
-    {
-      "title": "EEG",
-      "start": "2026-09-23T17:00:00.000Z",
-      "end": "2026-09-23T18:00:00.000Z",
-      "allDay": false
-    },
     {
       "title": "Tumble",
       "start": "2026-09-24T21:00:00.000Z",
@@ -24,6 +18,12 @@
       "title": "Homeschool Group - Marvin Efrid",
       "start": "2026-09-25T17:00:00.000Z",
       "end": "2026-09-25T19:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Fox Soccer Games",
+      "start": "2026-09-26T13:00:00.000Z",
+      "end": "2026-09-26T14:00:00.000Z",
       "allDay": false
     }
   ]
