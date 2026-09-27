@@ -1,13 +1,7 @@
 {
-  "updated": "2026-09-27T01:27:43.789Z",
+  "updated": "2026-09-27T08:11:07.680Z",
   "timeZone": "America/New_York",
   "events": [
-    {
-      "title": "Homeschool Group - Marvin Efrid",
-      "start": "2026-09-25T17:00:00.000Z",
-      "end": "2026-09-25T19:00:00.000Z",
-      "allDay": false
-    },
     {
       "title": "Fox Soccer Games",
       "start": "2026-09-26T13:00:00.000Z",
@@ -24,6 +18,24 @@
       "title": "Snack sign up (Red team)",
       "start": "2026-09-27T18:00:00.000Z",
       "end": "2026-09-27T18:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Jessica",
+      "start": "2026-09-28T17:15:00.000Z",
+      "end": "2026-09-28T19:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Extended Cheer",
+      "start": "2026-09-28T21:30:00.000Z",
+      "end": "2026-09-28T22:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Cheer",
+      "start": "2026-09-28T22:00:00.000Z",
+      "end": "2026-09-28T23:30:00.000Z",
       "allDay": false
     }
   ]
