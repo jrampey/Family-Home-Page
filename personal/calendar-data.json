@@ -1,13 +1,7 @@
 {
-  "updated": "2026-09-28T00:49:03.772Z",
+  "updated": "2026-09-28T06:54:56.657Z",
   "timeZone": "America/New_York",
   "events": [
-    {
-      "title": "Fox Soccer Games",
-      "start": "2026-09-26T13:00:00.000Z",
-      "end": "2026-09-26T14:00:00.000Z",
-      "allDay": false
-    },
     {
       "title": "Fox Soccer Games",
       "start": "2026-09-27T13:00:00.000Z",
