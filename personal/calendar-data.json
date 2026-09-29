@@ -1,19 +1,7 @@
 {
-  "updated": "2026-09-29T01:57:55.397Z",
+  "updated": "2026-09-29T08:31:32.186Z",
   "timeZone": "America/New_York",
   "events": [
-    {
-      "title": "Fox Soccer Games",
-      "start": "2026-09-27T13:00:00.000Z",
-      "end": "2026-09-27T14:00:00.000Z",
-      "allDay": false
-    },
-    {
-      "title": "Snack sign up (Red team)",
-      "start": "2026-09-27T18:00:00.000Z",
-      "end": "2026-09-27T18:00:00.000Z",
-      "allDay": false
-    },
     {
       "title": "Jessica",
       "start": "2026-09-28T17:15:00.000Z",
