@@ -34,13 +34,36 @@ function adapt(text,band){
   const limits={little:65,early:75,middle:85,preteen:95,teen:105};
   return clip(s,limits[band]);
 }
+function iconFor(ref,index){
+  const book=ref.replace(/\s+\d.*$/,'');
+  if(/Psalm/i.test(book))return '🎶';
+  return ['📖','🏠','🎉','🧹','🌿','👑','🙏','✨'][index%8];
+}
+function chapterTitle(ref,text){
+  const s=String(text||'').replace(/^.*?:\s*/,'').trim();
+  const first=(s.split(/[.!?]/)[0]||'').trim();
+  return first ? first.split(/\s+/).slice(0,8).join(' ') : 'What Happens Here';
+}
+function bigIdeaFor(band){
+  if(band==='little')return `God is with His people, and we can trust Him.`;
+  if(band==='early')return `God is at work in this story, and His people can trust and obey Him.`;
+  if(band==='middle')return `God works through real people and real choices to carry out His good purposes.`;
+  if(band==='preteen')return `God’s character and faithfulness matter more than circumstances, success, or human strength.`;
+  return `God’s character, promises, and purposes give the events of this chapter their deeper meaning.`;
+}
 function build(band,label,title){
-  const chapters=refs.map((ref,i)=>({
-    reference:ref,
-    readTime:'about 30 sec',
-    summary:adapt(chapterText(ref,i),band)
-  }));
-  return {ageLabel:label,title,chapters,summary:chapters.map(c=>`${c.reference} — ${c.summary}`),takeaway};
+  const chapters=refs.map((ref,i)=>{
+    const raw=chapterText(ref,i);
+    return {
+      reference:ref,
+      icon:iconFor(ref,i),
+      heading:chapterTitle(ref,raw),
+      readTime:'about 30 sec',
+      summary:adapt(raw,band),
+      bigIdea:bigIdeaFor(band)
+    };
+  });
+  return {ageLabel:label,title,chapters,summary:chapters.map(c=>`${c.reference} — ${c.summary}`),takeaway,bigLesson:takeaway};
 }
 
 entry.ageSummaries={
