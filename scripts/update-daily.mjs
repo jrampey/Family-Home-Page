@@ -66,7 +66,6 @@ const themes = {
 const key = Object.keys(themes).find(k => scripture.toLowerCase().includes(k.toLowerCase()));
 const theme = themes[key] || ["This reading is part of God's big story. Pay attention to the people, their choices, the consequences, and what God reveals about Himself.", "God is faithful, wise, and worthy of our trust."];
 const genericSummary = [
-  `Today we're reading ${scripture}. The recap below follows the actual contents of the assigned chapters in order.`,
   ...contentSummary,
   `${theme[0]} The important thing is to connect that truth to the events we just read, rather than replacing the story with a generic lesson.`
 ];
