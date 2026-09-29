@@ -38,20 +38,21 @@ function sentenceText(value) {
 function summarizeChapter(chapter) {
   const verses = chapter.verses;
   const count = verses.length;
-  const groupSize = Math.max(3, Math.ceil(count / 5));
-  const groups = [];
-  for (let i = 0; i < count; i += groupSize) groups.push(verses.slice(i, i + groupSize));
-
-  return groups.map(group => {
-    const first = group[0], last = group[group.length - 1];
-    const range = first.verse === last.verse ? `verse ${first.verse}` : `verses ${first.verse}–${last.verse}`;
-    const text = sentenceText(group.map(v => v.text).join(' '));
-    return `${chapter.reference}, ${range}: ${text}`;
-  });
+  // Keep enough material to understand the chapter, but store it as one clean
+  // chapter record instead of verse-range excerpts. The age-summary step turns
+  // this into the short narrative retelling shown on the homepage.
+  const sampleIndexes = [...new Set([
+    0,1,2,
+    Math.floor(count*.2),Math.floor(count*.35),Math.floor(count*.5),
+    Math.floor(count*.65),Math.floor(count*.8),
+    count-3,count-2,count-1
+  ].filter(i=>i>=0&&i<count))];
+  const text = sentenceText(sampleIndexes.map(i=>verses[i].text).join(' '));
+  return `${chapter.reference}: ${text}`;
 }
 
 const scriptureContents = await fetchScriptureContents(scripture);
-const contentSummary = scriptureContents.flatMap(summarizeChapter);
+const contentSummary = scriptureContents.map(summarizeChapter);
 
 const themes = {
   Daniel: ["God remains in control while Daniel and his friends faithfully follow Him in a foreign land.", "We can choose what is right even when others choose differently because God is with us."],
