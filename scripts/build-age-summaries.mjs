@@ -29,10 +29,18 @@ function chapterText(ref,index){
   return content.slice(index*size,(index+1)*size).join(' ');
 }
 function adapt(text,band){
-  let s=String(text||'').replace(/\s+/g,' ').trim();
-  if(band==='little')s=s.replace(/Nebuchadnezzar/g,'King Nebuchadnezzar').replace(/desolation/g,'time when the city was empty and broken');
-  const limits={little:65,early:75,middle:85,preteen:95,teen:105};
-  return clip(s,limits[band]);
+  let s=String(text||'').replace(/^.*?:\s*/,'').replace(/\s+/g,' ').trim();
+  s=s
+    .replace(/behold/gi,'look')
+    .replace(/therefore/gi,'so')
+    .replace(/amongst/gi,'among')
+    .replace(/Nebuchadnezzar/g,'King Nebuchadnezzar')
+    .replace(/desolation/gi,'a time when the city was empty and broken');
+  const limits={little:75,early:95,middle:105,preteen:115,teen:125};
+  const clipped=clip(s,limits[band]);
+  if(band==='little')return `In this chapter, ${clipped.charAt(0).toLowerCase()+clipped.slice(1)}`;
+  if(band==='early')return `Here’s what happens: ${clipped.charAt(0).toLowerCase()+clipped.slice(1)}`;
+  return clipped;
 }
 function iconFor(ref,index){
   const book=ref.replace(/\s+\d.*$/,'');
@@ -44,12 +52,13 @@ function chapterTitle(ref,text){
   const first=(s.split(/[.!?]/)[0]||'').trim();
   return first ? first.split(/\s+/).slice(0,8).join(' ') : 'What Happens Here';
 }
-function bigIdeaFor(band){
-  if(band==='little')return `God is with His people, and we can trust Him.`;
-  if(band==='early')return `God is at work in this story, and His people can trust and obey Him.`;
-  if(band==='middle')return `God works through real people and real choices to carry out His good purposes.`;
-  if(band==='preteen')return `God’s character and faithfulness matter more than circumstances, success, or human strength.`;
-  return `God’s character, promises, and purposes give the events of this chapter their deeper meaning.`;
+function bigIdeaFor(band,ref){
+  if(/Psalm/i.test(ref))return 'We can remember what God has done, trust Him in hard times, and praise Him with joy.';
+  if(band==='little')return 'God cares for His people, and we can trust Him.';
+  if(band==='early')return 'What people choose matters, and God is faithful through every part of the story.';
+  if(band==='middle')return 'God works through ordinary people, difficult choices, and changing circumstances to carry out His purposes.';
+  if(band==='preteen')return 'The events of this chapter show why God’s people need more than outward change—they need hearts that keep returning to Him.';
+  return 'The chapter’s events point beyond human effort to God’s character, faithfulness, and purposes.';
 }
 function build(band,label,title){
   const chapters=refs.map((ref,i)=>{
@@ -57,10 +66,10 @@ function build(band,label,title){
     return {
       reference:ref,
       icon:iconFor(ref,i),
-      heading:chapterTitle(ref,raw),
+      heading:chapterTitle(ref,adapt(raw,band)),
       readTime:'about 30 sec',
       summary:adapt(raw,band),
-      bigIdea:bigIdeaFor(band)
+      bigIdea:bigIdeaFor(band,ref)
     };
   });
   return {ageLabel:label,title,chapters,summary:chapters.map(c=>`${c.reference} — ${c.summary}`),takeaway,bigLesson:takeaway};
