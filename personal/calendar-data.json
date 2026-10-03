@@ -1,19 +1,7 @@
 {
-  "updated": "2026-10-03T01:57:32.951Z",
+  "updated": "2026-10-03T08:06:27.696Z",
   "timeZone": "America/New_York",
   "events": [
-    {
-      "title": "Tumble",
-      "start": "2026-10-01T21:00:00.000Z",
-      "end": "2026-10-01T22:00:00.000Z",
-      "allDay": false
-    },
-    {
-      "title": "Cheer",
-      "start": "2026-10-01T22:00:00.000Z",
-      "end": "2026-10-01T23:30:00.000Z",
-      "allDay": false
-    },
     {
       "title": "Jeter Mountain 🍎🍏",
       "start": "2026-10-02T04:00:00.000Z",
@@ -24,6 +12,12 @@
       "title": "Fox Soccer Games",
       "start": "2026-10-03T13:00:00.000Z",
       "end": "2026-10-03T14:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Fox Soccer Games",
+      "start": "2026-10-04T13:00:00.000Z",
+      "end": "2026-10-04T14:00:00.000Z",
       "allDay": false
     }
   ]
