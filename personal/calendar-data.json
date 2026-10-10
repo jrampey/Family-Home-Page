@@ -1,19 +1,7 @@
 {
-  "updated": "2026-10-10T00:51:47.823Z",
+  "updated": "2026-10-10T07:08:18.019Z",
   "timeZone": "America/New_York",
   "events": [
-    {
-      "title": "Tumble",
-      "start": "2026-10-08T21:00:00.000Z",
-      "end": "2026-10-08T22:00:00.000Z",
-      "allDay": false
-    },
-    {
-      "title": "Cheer",
-      "start": "2026-10-08T22:00:00.000Z",
-      "end": "2026-10-08T23:30:00.000Z",
-      "allDay": false
-    },
     {
       "title": "Tahoe Oil Change",
       "start": "2026-10-09T15:00:00.000Z",
@@ -36,6 +24,12 @@
       "title": "Fox Soccer Games",
       "start": "2026-10-10T13:00:00.000Z",
       "end": "2026-10-10T14:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Fox Soccer Games",
+      "start": "2026-10-11T13:00:00.000Z",
+      "end": "2026-10-11T14:00:00.000Z",
       "allDay": false
     }
   ]
