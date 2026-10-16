@@ -1,19 +1,7 @@
 {
-  "updated": "2026-10-16T01:21:16.090Z",
+  "updated": "2026-10-16T07:10:10.415Z",
   "timeZone": "America/New_York",
   "events": [
-    {
-      "title": "Meet Hunter",
-      "start": "2026-10-14T14:00:00.000Z",
-      "end": "2026-10-14T15:00:00.000Z",
-      "allDay": false
-    },
-    {
-      "title": "Bible Study",
-      "start": "2026-10-14T22:30:00.000Z",
-      "end": "2026-10-15T00:00:00.000Z",
-      "allDay": false
-    },
     {
       "title": "Tumble",
       "start": "2026-10-15T21:00:00.000Z",
@@ -24,6 +12,18 @@
       "title": "Cheer",
       "start": "2026-10-15T22:00:00.000Z",
       "end": "2026-10-15T23:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Skyler’s Birthday",
+      "start": "2026-10-17T04:00:00.000Z",
+      "end": "2026-10-18T04:00:00.000Z",
+      "allDay": true
+    },
+    {
+      "title": "Fox Soccer Games",
+      "start": "2026-10-17T13:00:00.000Z",
+      "end": "2026-10-17T14:00:00.000Z",
       "allDay": false
     }
   ]
