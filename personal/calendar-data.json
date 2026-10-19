@@ -1,19 +1,7 @@
 {
-  "updated": "2026-10-19T01:20:08.304Z",
+  "updated": "2026-10-19T07:47:08.421Z",
   "timeZone": "America/New_York",
   "events": [
-    {
-      "title": "Skyler’s Birthday",
-      "start": "2026-10-17T04:00:00.000Z",
-      "end": "2026-10-18T04:00:00.000Z",
-      "allDay": true
-    },
-    {
-      "title": "Fox Soccer Games",
-      "start": "2026-10-17T13:00:00.000Z",
-      "end": "2026-10-17T14:00:00.000Z",
-      "allDay": false
-    },
     {
       "title": "Fox Soccer Games",
       "start": "2026-10-18T13:00:00.000Z",
