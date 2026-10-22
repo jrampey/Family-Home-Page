@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-21T23:19:56.761Z",
+  "updated": "2026-10-22T04:46:58.387Z",
   "timeZone": "America/New_York",
   "events": [
     {
@@ -24,6 +24,18 @@
       "title": "Cheer",
       "start": "2026-10-22T22:00:00.000Z",
       "end": "2026-10-22T23:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Homeschool Group - Optimist",
+      "start": "2026-10-23T17:00:00.000Z",
+      "end": "2026-10-23T19:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Trunk or Treat",
+      "start": "2026-10-23T22:00:00.000Z",
+      "end": "2026-10-24T01:00:00.000Z",
       "allDay": false
     }
   ]
