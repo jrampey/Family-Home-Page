@@ -1,19 +1,7 @@
 {
-  "updated": "2026-10-22T23:22:42.791Z",
+  "updated": "2026-10-23T04:50:00.586Z",
   "timeZone": "America/New_York",
   "events": [
-    {
-      "title": "Dentist",
-      "start": "2026-10-21T13:30:00.000Z",
-      "end": "2026-10-21T14:30:00.000Z",
-      "allDay": false
-    },
-    {
-      "title": "Bible Study",
-      "start": "2026-10-21T22:30:00.000Z",
-      "end": "2026-10-22T00:00:00.000Z",
-      "allDay": false
-    },
     {
       "title": "Tumble",
       "start": "2026-10-22T21:00:00.000Z",
@@ -36,6 +24,12 @@
       "title": "Trunk or Treat",
       "start": "2026-10-23T22:00:00.000Z",
       "end": "2026-10-24T01:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Fox Soccer Games",
+      "start": "2026-10-24T13:00:00.000Z",
+      "end": "2026-10-24T14:00:00.000Z",
       "allDay": false
     }
   ]
