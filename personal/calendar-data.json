@@ -1,19 +1,7 @@
 {
-  "updated": "2026-10-25T01:10:31.807Z",
+  "updated": "2026-10-25T06:08:58.499Z",
   "timeZone": "America/New_York",
   "events": [
-    {
-      "title": "Homeschool Group - Optimist",
-      "start": "2026-10-23T17:00:00.000Z",
-      "end": "2026-10-23T19:00:00.000Z",
-      "allDay": false
-    },
-    {
-      "title": "Trunk or Treat",
-      "start": "2026-10-23T22:00:00.000Z",
-      "end": "2026-10-24T01:00:00.000Z",
-      "allDay": false
-    },
     {
       "title": "Fox Soccer Games",
       "start": "2026-10-24T13:00:00.000Z",
@@ -24,6 +12,12 @@
       "title": "Fox Soccer Games",
       "start": "2026-10-25T13:00:00.000Z",
       "end": "2026-10-25T14:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Cheer",
+      "start": "2026-10-26T22:00:00.000Z",
+      "end": "2026-10-26T23:30:00.000Z",
       "allDay": false
     }
   ]
