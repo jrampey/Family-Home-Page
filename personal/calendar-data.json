@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-01T01:10:28.483Z",
+  "updated": "2026-11-01T07:33:34.356Z",
   "timeZone": "America/New_York",
   "events": [
     {
@@ -12,6 +12,12 @@
       "title": "Big/Little Event",
       "start": "2026-11-01T18:00:00.000Z",
       "end": "2026-11-01T19:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Cheer",
+      "start": "2026-11-02T23:00:00.000Z",
+      "end": "2026-11-03T00:30:00.000Z",
       "allDay": false
     }
   ]
