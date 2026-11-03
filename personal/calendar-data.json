@@ -1,17 +1,23 @@
 {
-  "updated": "2026-11-02T23:30:27.515Z",
+  "updated": "2026-11-03T06:48:20.135Z",
   "timeZone": "America/New_York",
   "events": [
-    {
-      "title": "Big/Little Event",
-      "start": "2026-11-01T18:00:00.000Z",
-      "end": "2026-11-01T19:00:00.000Z",
-      "allDay": false
-    },
     {
       "title": "Cheer",
       "start": "2026-11-02T23:00:00.000Z",
       "end": "2026-11-03T00:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Christmas Shopping",
+      "start": "2026-11-04T05:00:00.000Z",
+      "end": "2026-11-05T05:00:00.000Z",
+      "allDay": true
+    },
+    {
+      "title": "Bible Study",
+      "start": "2026-11-04T23:30:00.000Z",
+      "end": "2026-11-05T01:00:00.000Z",
       "allDay": false
     }
   ]
