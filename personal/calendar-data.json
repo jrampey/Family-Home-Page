@@ -1,13 +1,7 @@
 {
-  "updated": "2026-11-04T01:21:44.642Z",
+  "updated": "2026-11-04T09:12:57.355Z",
   "timeZone": "America/New_York",
   "events": [
-    {
-      "title": "Cheer",
-      "start": "2026-11-02T23:00:00.000Z",
-      "end": "2026-11-03T00:30:00.000Z",
-      "allDay": false
-    },
     {
       "title": "Christmas Shopping",
       "start": "2026-11-04T05:00:00.000Z",
@@ -18,6 +12,24 @@
       "title": "Bible Study",
       "start": "2026-11-04T23:30:00.000Z",
       "end": "2026-11-05T01:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Tumble",
+      "start": "2026-11-05T22:00:00.000Z",
+      "end": "2026-11-05T23:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Extended Practice",
+      "start": "2026-11-05T23:00:00.000Z",
+      "end": "2026-11-06T01:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Cheer",
+      "start": "2026-11-05T23:00:00.000Z",
+      "end": "2026-11-06T00:30:00.000Z",
       "allDay": false
     }
   ]
