@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-04T23:39:55.244Z",
+  "updated": "2026-11-05T06:47:03.029Z",
   "timeZone": "America/New_York",
   "events": [
     {
@@ -30,6 +30,18 @@
       "title": "Cheer",
       "start": "2026-11-05T23:00:00.000Z",
       "end": "2026-11-06T00:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Joseph OFF",
+      "start": "2026-11-06T05:00:00.000Z",
+      "end": "2026-11-07T05:00:00.000Z",
+      "allDay": true
+    },
+    {
+      "title": "Homeschool Group - Dogwood",
+      "start": "2026-11-06T18:00:00.000Z",
+      "end": "2026-11-06T20:00:00.000Z",
       "allDay": false
     }
   ]
