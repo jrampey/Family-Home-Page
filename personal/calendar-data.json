@@ -1,19 +1,7 @@
 {
-  "updated": "2026-11-06T02:26:39.516Z",
+  "updated": "2026-11-06T10:53:30.929Z",
   "timeZone": "America/New_York",
   "events": [
-    {
-      "title": "Christmas Shopping",
-      "start": "2026-11-04T05:00:00.000Z",
-      "end": "2026-11-05T05:00:00.000Z",
-      "allDay": true
-    },
-    {
-      "title": "Bible Study",
-      "start": "2026-11-04T23:30:00.000Z",
-      "end": "2026-11-05T01:00:00.000Z",
-      "allDay": false
-    },
     {
       "title": "Tumble",
       "start": "2026-11-05T22:00:00.000Z",
@@ -42,6 +30,18 @@
       "title": "Homeschool Group - Dogwood",
       "start": "2026-11-06T18:00:00.000Z",
       "end": "2026-11-06T20:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "AVA’s 8th BIRTHDAY 🥳",
+      "start": "2026-11-07T05:00:00.000Z",
+      "end": "2026-11-08T05:00:00.000Z",
+      "allDay": true
+    },
+    {
+      "title": "Omni Carnival",
+      "start": "2026-11-07T18:00:00.000Z",
+      "end": "2026-11-07T21:00:00.000Z",
       "allDay": false
     }
   ]
