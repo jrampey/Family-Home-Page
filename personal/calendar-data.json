@@ -1,25 +1,7 @@
 {
-  "updated": "2026-11-07T02:48:15.081Z",
+  "updated": "2026-11-07T10:10:01.338Z",
   "timeZone": "America/New_York",
   "events": [
-    {
-      "title": "Tumble",
-      "start": "2026-11-05T22:00:00.000Z",
-      "end": "2026-11-05T23:00:00.000Z",
-      "allDay": false
-    },
-    {
-      "title": "Extended Practice",
-      "start": "2026-11-05T23:00:00.000Z",
-      "end": "2026-11-06T01:00:00.000Z",
-      "allDay": false
-    },
-    {
-      "title": "Cheer",
-      "start": "2026-11-05T23:00:00.000Z",
-      "end": "2026-11-06T00:30:00.000Z",
-      "allDay": false
-    },
     {
       "title": "Joseph OFF",
       "start": "2026-11-06T05:00:00.000Z",
@@ -43,6 +25,12 @@
       "start": "2026-11-07T18:00:00.000Z",
       "end": "2026-11-07T21:00:00.000Z",
       "allDay": false
+    },
+    {
+      "title": "Omni Showcase - Concord",
+      "start": "2026-11-08T05:00:00.000Z",
+      "end": "2026-11-09T05:00:00.000Z",
+      "allDay": true
     }
   ]
 }
