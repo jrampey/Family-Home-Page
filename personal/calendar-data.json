@@ -1,19 +1,7 @@
 {
-  "updated": "2026-11-08T00:36:36.158Z",
+  "updated": "2026-11-08T07:20:46.874Z",
   "timeZone": "America/New_York",
   "events": [
-    {
-      "title": "Joseph OFF",
-      "start": "2026-11-06T05:00:00.000Z",
-      "end": "2026-11-07T05:00:00.000Z",
-      "allDay": true
-    },
-    {
-      "title": "Homeschool Group - Dogwood",
-      "start": "2026-11-06T18:00:00.000Z",
-      "end": "2026-11-06T20:00:00.000Z",
-      "allDay": false
-    },
     {
       "title": "AVA’s 8th BIRTHDAY 🥳",
       "start": "2026-11-07T05:00:00.000Z",
@@ -31,6 +19,12 @@
       "start": "2026-11-08T05:00:00.000Z",
       "end": "2026-11-09T05:00:00.000Z",
       "allDay": true
+    },
+    {
+      "title": "Cheer",
+      "start": "2026-11-09T23:00:00.000Z",
+      "end": "2026-11-10T00:30:00.000Z",
+      "allDay": false
     }
   ]
 }
