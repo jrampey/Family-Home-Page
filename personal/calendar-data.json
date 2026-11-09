@@ -1,19 +1,7 @@
 {
-  "updated": "2026-11-08T23:43:07.019Z",
+  "updated": "2026-11-09T06:29:50.137Z",
   "timeZone": "America/New_York",
   "events": [
-    {
-      "title": "AVA’s 8th BIRTHDAY 🥳",
-      "start": "2026-11-07T05:00:00.000Z",
-      "end": "2026-11-08T05:00:00.000Z",
-      "allDay": true
-    },
-    {
-      "title": "Omni Carnival",
-      "start": "2026-11-07T18:00:00.000Z",
-      "end": "2026-11-07T21:00:00.000Z",
-      "allDay": false
-    },
     {
       "title": "Omni Showcase - Concord",
       "start": "2026-11-08T05:00:00.000Z",
