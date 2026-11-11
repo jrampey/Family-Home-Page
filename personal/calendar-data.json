@@ -1,13 +1,7 @@
 {
-  "updated": "2026-11-10T23:22:56.562Z",
+  "updated": "2026-11-11T06:21:56.480Z",
   "timeZone": "America/New_York",
   "events": [
-    {
-      "title": "Cheer",
-      "start": "2026-11-09T23:00:00.000Z",
-      "end": "2026-11-10T00:30:00.000Z",
-      "allDay": false
-    },
     {
       "title": "Christmas Show",
       "start": "2026-11-11T05:00:00.000Z",
@@ -18,6 +12,18 @@
       "title": "Bible Study",
       "start": "2026-11-11T23:30:00.000Z",
       "end": "2026-11-12T01:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Tumble",
+      "start": "2026-11-12T22:00:00.000Z",
+      "end": "2026-11-12T23:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Cheer",
+      "start": "2026-11-12T23:00:00.000Z",
+      "end": "2026-11-13T00:30:00.000Z",
       "allDay": false
     }
   ]
