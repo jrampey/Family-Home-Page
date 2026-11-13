@@ -1,19 +1,7 @@
 {
-  "updated": "2026-11-13T00:25:23.725Z",
+  "updated": "2026-11-13T07:58:39.590Z",
   "timeZone": "America/New_York",
   "events": [
-    {
-      "title": "Christmas Show",
-      "start": "2026-11-11T05:00:00.000Z",
-      "end": "2026-11-12T05:00:00.000Z",
-      "allDay": true
-    },
-    {
-      "title": "Bible Study",
-      "start": "2026-11-11T23:30:00.000Z",
-      "end": "2026-11-12T01:00:00.000Z",
-      "allDay": false
-    },
     {
       "title": "Tumble",
       "start": "2026-11-12T22:00:00.000Z",
