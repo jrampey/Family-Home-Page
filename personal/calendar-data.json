@@ -1,5 +1,12 @@
 {
-  "updated": "2026-11-15T02:39:40.519Z",
+  "updated": "2026-11-15T10:54:00.998Z",
   "timeZone": "America/New_York",
-  "events": []
+  "events": [
+    {
+      "title": "Cheer",
+      "start": "2026-11-16T23:00:00.000Z",
+      "end": "2026-11-17T00:30:00.000Z",
+      "allDay": false
+    }
+  ]
 }
