@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-19T03:28:13.227Z",
+  "updated": "2026-11-19T13:08:07.191Z",
   "timeZone": "America/New_York",
   "events": [
     {
@@ -24,6 +24,12 @@
       "title": "Cheer",
       "start": "2026-11-19T23:00:00.000Z",
       "end": "2026-11-20T00:30:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Homeschool Group - Marvin Efrid",
+      "start": "2026-11-20T18:00:00.000Z",
+      "end": "2026-11-20T20:00:00.000Z",
       "allDay": false
     }
   ]
