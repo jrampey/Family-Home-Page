@@ -1,19 +1,7 @@
 {
-  "updated": "2026-11-20T03:15:27.314Z",
+  "updated": "2026-11-20T12:54:18.429Z",
   "timeZone": "America/New_York",
   "events": [
-    {
-      "title": "Sheetrock",
-      "start": "2026-11-18T19:00:00.000Z",
-      "end": "2026-11-18T20:00:00.000Z",
-      "allDay": false
-    },
-    {
-      "title": "Bible Study",
-      "start": "2026-11-18T23:30:00.000Z",
-      "end": "2026-11-19T01:00:00.000Z",
-      "allDay": false
-    },
     {
       "title": "Tumble",
       "start": "2026-11-19T22:00:00.000Z",
@@ -30,6 +18,12 @@
       "title": "Homeschool Group - Marvin Efrid",
       "start": "2026-11-20T18:00:00.000Z",
       "end": "2026-11-20T20:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "title": "Send off",
+      "start": "2026-11-21T19:00:00.000Z",
+      "end": "2026-11-21T21:00:00.000Z",
       "allDay": false
     }
   ]
