@@ -1,19 +1,7 @@
 {
-  "updated": "2026-11-21T02:15:27.343Z",
+  "updated": "2026-11-21T11:01:52.680Z",
   "timeZone": "America/New_York",
   "events": [
-    {
-      "title": "Tumble",
-      "start": "2026-11-19T22:00:00.000Z",
-      "end": "2026-11-19T23:00:00.000Z",
-      "allDay": false
-    },
-    {
-      "title": "Cheer",
-      "start": "2026-11-19T23:00:00.000Z",
-      "end": "2026-11-20T00:30:00.000Z",
-      "allDay": false
-    },
     {
       "title": "Homeschool Group - Marvin Efrid",
       "start": "2026-11-20T18:00:00.000Z",
@@ -25,6 +13,12 @@
       "start": "2026-11-21T19:00:00.000Z",
       "end": "2026-11-21T21:00:00.000Z",
       "allDay": false
+    },
+    {
+      "title": "Clash of Titans - Concord",
+      "start": "2026-11-22T05:00:00.000Z",
+      "end": "2026-11-23T05:00:00.000Z",
+      "allDay": true
     }
   ]
 }
