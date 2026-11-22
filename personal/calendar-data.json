@@ -1,13 +1,7 @@
 {
-  "updated": "2026-11-21T23:16:30.943Z",
+  "updated": "2026-11-22T06:48:49.693Z",
   "timeZone": "America/New_York",
   "events": [
-    {
-      "title": "Homeschool Group - Marvin Efrid",
-      "start": "2026-11-20T18:00:00.000Z",
-      "end": "2026-11-20T20:00:00.000Z",
-      "allDay": false
-    },
     {
       "title": "Send off",
       "start": "2026-11-21T19:00:00.000Z",
@@ -19,6 +13,24 @@
       "start": "2026-11-22T05:00:00.000Z",
       "end": "2026-11-23T05:00:00.000Z",
       "allDay": true
+    },
+    {
+      "title": "Jessica/Form",
+      "start": "2026-11-23T05:00:00.000Z",
+      "end": "2026-11-24T05:00:00.000Z",
+      "allDay": true
+    },
+    {
+      "title": "THANKSGIVING BREAK",
+      "start": "2026-11-23T05:00:00.000Z",
+      "end": "2026-11-28T05:00:00.000Z",
+      "allDay": true
+    },
+    {
+      "title": "Cheer",
+      "start": "2026-11-23T23:00:00.000Z",
+      "end": "2026-11-24T00:30:00.000Z",
+      "allDay": false
     }
   ]
 }
