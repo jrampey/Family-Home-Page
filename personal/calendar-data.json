@@ -1,13 +1,7 @@
 {
-  "updated": "2026-11-23T02:45:41.095Z",
+  "updated": "2026-11-23T12:42:02.031Z",
   "timeZone": "America/New_York",
   "events": [
-    {
-      "title": "Send off",
-      "start": "2026-11-21T19:00:00.000Z",
-      "end": "2026-11-21T21:00:00.000Z",
-      "allDay": false
-    },
     {
       "title": "Clash of Titans - Concord",
       "start": "2026-11-22T05:00:00.000Z",
