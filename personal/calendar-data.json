@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-28T02:41:15.294Z",
+  "updated": "2026-11-28T11:45:58.005Z",
   "timeZone": "America/New_York",
   "events": [
     {
@@ -7,18 +7,6 @@
       "start": "2026-11-23T05:00:00.000Z",
       "end": "2026-11-28T05:00:00.000Z",
       "allDay": true
-    },
-    {
-      "title": "Tumble",
-      "start": "2026-11-26T22:00:00.000Z",
-      "end": "2026-11-26T23:00:00.000Z",
-      "allDay": false
-    },
-    {
-      "title": "Cheer",
-      "start": "2026-11-26T23:00:00.000Z",
-      "end": "2026-11-27T00:30:00.000Z",
-      "allDay": false
     }
   ]
 }
